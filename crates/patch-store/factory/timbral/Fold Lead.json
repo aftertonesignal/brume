@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Fold Lead",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.7,
+    "Symmetry": -0.1,
+    "TimbralFmDepth": 0.1,
+    "TimbralFmRatio": 1.5,
+    "SubLevel": 0.1,
+    "TimbralFeedback": 0.08,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 4,
+    "AmpDecay": 200,
+    "AmpSustain": 0.8,
+    "AmpRelease": 200
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Bright folded lead \u2014 the wave-multiplier brings a vocal, edgy upper spectrum."
+}

@@ -1,0 +1,36 @@
+[package]
+name = "brumectl"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Mac-side companion CLI for the Brume hardware instrument."
+
+[[bin]]
+name = "brumectl"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+# `brumectl watch` — live dashboard panes for device vitals, console
+# stream, and script hot-reload. ratatui is the framework, crossterm
+# is the terminal backend it talks to.
+ratatui = "0.29"
+crossterm = "0.28"
+# `brumectl install` auto-fetches the brume aarch64 binary from
+# GitHub Releases when no local build is found. ureq is sync (no
+# tokio runtime to drag in), small, and ships a vendored TLS stack
+# (rustls-tls feature) so installs work on stock macOS / Linux dev
+# hosts without an external openssl dep.
+ureq = { version = "2", default-features = false, features = ["tls"] }
+# SHA-256 verification of downloaded artifacts against the
+# `.sha256` sidecars release.yml emits.
+sha2 = "0.10"
+# Cross-platform user-cache directory resolution
+# (~/Library/Caches on macOS, $XDG_CACHE_HOME on Linux).
+dirs = "5"
+
+[lints]
+workspace = true

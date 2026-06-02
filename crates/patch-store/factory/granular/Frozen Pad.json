@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Frozen Pad",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.6,
+    "GranularGrainSize": 0.92,
+    "GranularMorph": 0.05,
+    "GranularScatter": 0.02,
+    "GranularSpread": 0.75,
+    "GranularDrift": 0.008,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.7,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1000,
+    "AmpDecay": 2200,
+    "AmpSustain": 0.78,
+    "AmpRelease": 2000
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Frozen sine pad \u2014 the longest grains hold the spectrum dead still, like a sustain-pedal freeze."
+}

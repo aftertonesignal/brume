@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Acid Lead",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.34,
+    "FmIndex": 0.7,
+    "Op1Ratio": 1.0, "Op2Ratio": 1.0, "Op3Ratio": 2.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.55, "Op2Level": 0.5, "Op3Level": 0.28,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.3, "FmIndexEnvAttack": 2.0, "FmIndexEnvDecay": 240.0,
+    "FmIndexEnvSustain": 0.45, "FmIndexEnvRelease": 180.0,
+    "FilterCutoff": 2600.0, "FilterResonance": 0.42, "FilterEnvDepth": 0.55,
+    "FilterEnvAttack": 2.0, "FilterEnvDecay": 320.0, "FilterEnvSustain": 0.2, "FilterEnvRelease": 200.0,
+    "AmpAttack": 2.0, "AmpDecay": 240.0, "AmpSustain": 0.7, "AmpRelease": 160.0
+  },
+  "tags": ["fm", "factory", "lead", "noisy"],
+  "author": "Brume Factory",
+  "notes": "NOISY. STACK with heavy feedback (self-oscillation grit) driven through a high-resonance filter sweep — a screaming acid lead. Carrier dropped to keep it staged despite the feedback."
+}

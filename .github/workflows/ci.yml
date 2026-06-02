@@ -1,0 +1,222 @@
+# CI — runs on every PR and on every push to main.
+#
+# Designed against BUILD_AND_RELEASE.md §5.
+# The release workflow (.github/workflows/release.yml, landing next)
+# handles tag-push artifact builds; this file just keeps `main` green
+# and gives PR authors a fast read on whether their change builds and
+# tests cleanly.
+#
+# Gates today (must pass):
+#   - cargo fmt --all -- --check
+#   - cargo test --workspace --locked
+#   - cargo audit (RustSec advisory DB check; fails on any unaddressed
+#     advisory in our dep tree). Pairs with the workspace-wide
+#     `unsafe_code = "forbid"` to make supply-chain regressions
+#     visible at PR time rather than discovered in production.
+#
+# Gates today (must pass) — clippy correctness/suspicious/perf:
+#   - cargo clippy ... -D clippy::correctness -D clippy::suspicious -D clippy::perf
+#     These three groups catch real bugs (use-after-move, unsound
+#     conversions, accidental panics on drop). Failing here is
+#     always a real signal.
+#
+# Advisory today (runs, surfaces output, does not block):
+#   - cargo clippy ... -D clippy::pedantic
+#     `clippy::pedantic = "warn"` is configured in Cargo.toml's
+#     [workspace.lints] and produces ~100 stylistic warnings against
+#     the current codebase. Promoting pedantic to a gate means a
+#     separate cleanup pass first; tracked separately.
+#
+# Release builds (`cargo build --release`) are validated in
+# release.yml on tag-push, not here. A release-only compile failure
+# is rare enough that paying for the workspace to rebuild from
+# scratch on every PR isn't worth it; `cargo test` already exercises
+# every crate's compilation surface.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Cancel in-flight runs of the same workflow on the same ref when a
+# new push lands. Saves minutes on stacked rebases.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  # Lock cargo to its install dir so the rust-cache action picks up
+  # the right paths regardless of runner.
+  CARGO_INCREMENTAL: 0
+
+jobs:
+  # ---- Linux: full workspace validation against the deploy target.
+  #
+  # The shipping aarch64 binary is a Linux ELF, so x86_64 Linux is
+  # the closest CI surface that exercises every workspace crate
+  # (including the GTK/webkit2gtk-dependent ui-app and brume-main).
+  # ARM cross-compilation lives in release.yml, not here.
+  linux:
+    name: linux (ubuntu-latest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install Rust toolchain
+        # rust-toolchain.toml at the repo root pins `channel = "stable"`;
+        # `rustup show` honours it and installs the resolved toolchain.
+        run: rustup show
+
+      - name: Install Linux build deps
+        # ALSA for cpal in audio-io; pkg-config so cargo can find it.
+        # Per-step timeout because Debian-mirror outages have hung
+        # `apt-get update` for tens of minutes; fail fast instead.
+        timeout-minutes: 5
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pkg-config \
+            libasound2-dev
+
+      - name: Cache cargo registry + target/
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          # Distinguish the cache key from any future macOS job — the
+          # action is smart about platform but explicit prefixing
+          # makes purges surgical.
+          prefix-key: ci-linux
+
+      - name: cargo fmt --check
+        run: cargo fmt --all -- --check
+
+      - name: cargo test --workspace
+        # `--locked` rejects PRs that mutate Cargo.lock without
+        # committing the change. Lockfile drift on `main` should be
+        # an explicit edit, not a side effect of running tests.
+        run: cargo test --workspace --locked --no-fail-fast
+
+      - name: cargo clippy (gating — correctness / suspicious / perf)
+        # These three lint groups catch real bugs, not style. Fail
+        # the job on any warning here. `-A clippy::pedantic` keeps
+        # the pedantic backlog from leaking in via the workspace's
+        # [workspace.lints] `pedantic = "warn"` setting; pedantic
+        # gets its own advisory step below.
+        run: |
+          cargo clippy --workspace --all-targets -- \
+            -D clippy::correctness \
+            -D clippy::suspicious \
+            -D clippy::perf \
+            -A clippy::pedantic
+
+      - name: cargo clippy (advisory — pedantic backlog)
+        # Reports the ~100-warning pedantic backlog to the run log
+        # without failing the job. When that backlog is cleaned up,
+        # drop the `continue-on-error` and merge this into the
+        # gating step.
+        continue-on-error: true
+        run: cargo clippy --workspace --all-targets -- -D clippy::pedantic
+
+  # ---- MSRV: validate the published `rust-version = "1.87"` claim.
+  #
+  # `cargo check` (not test or build) is enough — it exercises the
+  # full type-check + macro-expansion surface that the version
+  # constraint is meant to gate, without paying for codegen. If a
+  # contributor lands a `let-else` chain or std method that requires
+  # 1.91, this fails before the lie reaches downstream consumers
+  # (the hobby project doesn't have downstream consumers today, but
+  # the field is published; either it's true or it should be removed).
+  msrv:
+    name: msrv (1.87)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install Rust 1.87
+        # `--profile minimal` skips rust-docs/clippy/rustfmt; this job
+        # runs `cargo check` only. The `+1.87` override below selects
+        # this toolchain over the rust-toolchain.toml `channel = "stable"`
+        # default.
+        run: rustup toolchain install 1.87 --profile minimal --no-self-update
+
+      - name: Install Linux build deps
+        timeout-minutes: 5
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pkg-config \
+            libasound2-dev
+
+      - name: Cache cargo registry + target/
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          prefix-key: ci-msrv
+
+      - name: cargo +1.87 check --workspace --locked
+        run: cargo +1.87 check --workspace --locked --all-targets
+
+  # ---- macOS: brumectl only.
+  #
+  # brumectl is the Mac-side companion CLI; macOS users download it
+  # from the GitHub Release page. Catching macOS-specific regressions
+  # (rpiboot path resolution, diskutil parsing, /dev/rdiskN handling)
+  # at PR time is worth one extra runner — but only for brumectl
+  # itself.
+  #
+  # The full-workspace surface is already covered by the linux job.
+  # Cross-platform crates (dsp-core, common, audio-io via cpal) are
+  # platform-agnostic Rust and don't need a second test run on macOS;
+  # platform-specific crates (gtk, thread-priority, ui-app) are gated
+  # to `cfg(target_os = "linux")` and would skip on Darwin anyway.
+  # macOS runner minutes bill at 10× Linux, so paying for the full
+  # workspace here would burn budget for no signal beyond brumectl.
+  macos:
+    name: macos (macos-latest, brumectl)
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install Rust toolchain
+        run: rustup show
+
+      - name: Cache cargo registry + target/
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          prefix-key: ci-macos
+
+      - name: cargo test -p brumectl
+        run: cargo test -p brumectl --locked --no-fail-fast
+
+  # ---- Audit: scan the dep tree against the RustSec advisory DB.
+  #
+  # Reuses the official rustsec/audit-check action so we get the
+  # same parser RustSec maintains. Fails the job on any unaddressed
+  # advisory; if upstream can't be bumped quickly an `[advisories]
+  # ignore` entry in `.cargo/audit.toml` is the documented escape
+  # hatch (none today). Runs alongside the linux job — same Cargo.lock,
+  # same outcome, decoupled so a failure here doesn't block fmt/test
+  # signal.
+  audit:
+    name: audit (rustsec)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # rustsec/audit-check posts its findings as a Check Run on the
+    # commit so warnings show up inline in the PR / commit view. That
+    # API requires `checks: write`; the default GITHUB_TOKEN scope is
+    # too restrictive and the action fails the step with "Resource
+    # not accessible by integration" at the very end of an otherwise-
+    # successful audit. `contents: read` is the minimum the checkout
+    # step needs.
+    permissions:
+      contents: read
+      checks: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - uses: rustsec/audit-check@69366f33c96575abad1ee0dba8212993eecbe998 # v2.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}

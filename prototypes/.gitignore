@@ -1,0 +1,3 @@
+# Build artifacts for self-contained spike workspaces. Each
+# prototype is its own Cargo workspace under this directory.
+*/target/

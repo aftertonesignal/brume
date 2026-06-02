@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Reso Bass",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.62,
+    "HarmonicLevel2": 0.3,
+    "HarmonicLevel3": 0.34,
+    "HarmonicLevel4": 0.18,
+    "HarmonicLevel5": 0.14,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.25,
+    "HarmonicOddEven": 0.55,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.35,
+    "ScanWidth": 0.5,
+    "HarmonicMorph": 0.35,
+    "HarmonicFmDepth": 0.02,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.2,
+    "FilterCutoff": 3200,
+    "FilterResonance": 0.22,
+    "FilterEnvDepth": 0.35,
+    "FilterEnvAttack": 2,
+    "FilterEnvDecay": 200,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 180,
+    "AmpAttack": 2,
+    "AmpDecay": 220,
+    "AmpSustain": 0.65,
+    "AmpRelease": 140
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Resonant synth bass \u2014 fuller mid spectrum through a resonant filter sweep. Punchier than the hollow odd-harmonic bass."
+}

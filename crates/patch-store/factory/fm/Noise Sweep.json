@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Noise Sweep",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.62,
+    "FmIndex": 1.0,
+    "Op1Ratio": 1.0, "Op2Ratio": 5.37, "Op3Ratio": 1.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.48, "Op2Level": 0.42, "Op3Level": 0.0,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.0, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 300.0,
+    "FmIndexEnvSustain": 0.0, "FmIndexEnvRelease": 200.0,
+    "FilterCutoff": 1200.0, "FilterResonance": 0.3, "FilterEnvDepth": 0.7,
+    "FilterEnvAttack": 1200.0, "FilterEnvDecay": 2400.0, "FilterEnvSustain": 0.3, "FilterEnvRelease": 1800.0,
+    "AmpAttack": 600.0, "AmpDecay": 2000.0, "AmpSustain": 0.7, "AmpRelease": 1500.0
+  },
+  "tags": ["fm", "factory", "texture", "noisy"],
+  "author": "Brume Factory",
+  "notes": "NOISY. Max-feedback self-oscillation against an inharmonic 5.37:1 ratio = pitched noise, opened slowly by a resonant filter sweep. A wind/riser FX texture — use sparingly."
+}

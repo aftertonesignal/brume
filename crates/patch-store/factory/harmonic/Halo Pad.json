@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Halo Pad",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.4,
+    "HarmonicLevel2": 0.22,
+    "HarmonicLevel3": 0.16,
+    "HarmonicLevel4": 0.2,
+    "HarmonicLevel5": 0.14,
+    "HarmonicLevel6": 0.16,
+    "HarmonicLevel7": 0.1,
+    "HarmonicLevel8": 0.08,
+    "HarmonicTilt": 0.18,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.02,
+    "ScanCenter": 0.55,
+    "ScanWidth": 0.85,
+    "HarmonicMorph": 0.1,
+    "HarmonicFmDepth": 0.01,
+    "HarmonicFmRatio": 4.0,
+    "HarmonicSpread": 0.85,
+    "FilterCutoff": 9000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.1,
+    "FilterEnvAttack": 1200,
+    "FilterEnvDecay": 2600,
+    "FilterEnvSustain": 0.7,
+    "FilterEnvRelease": 2200,
+    "AmpAttack": 1200,
+    "AmpDecay": 2400,
+    "AmpSustain": 0.7,
+    "AmpRelease": 2200
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Airy diffuse halo pad \u2014 very wide spread spreads the partials into a breathy wash. Diffuse where the crystal pad is thin and focused."
+}

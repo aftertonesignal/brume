@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Reed Keys",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.55,
+    "Symmetry": 0.2,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.06,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 5000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 700,
+    "AmpSustain": 0.3,
+    "AmpRelease": 400
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Reedy folded keys \u2014 a hint of bark in the body."
+}

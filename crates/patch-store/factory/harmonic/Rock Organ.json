@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Rock Organ",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.6,
+    "HarmonicLevel2": 0.4,
+    "HarmonicLevel3": 0.3,
+    "HarmonicLevel4": 0.2,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.18,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.12,
+    "HarmonicTilt": 0.05,
+    "HarmonicOddEven": 0.45,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.04,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.1,
+    "FilterEnvAttack": 1,
+    "FilterEnvDecay": 80,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 100,
+    "AmpAttack": 2,
+    "AmpDecay": 90,
+    "AmpSustain": 0.8,
+    "AmpRelease": 80
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Overdriven rock organ \u2014 percussive key-click attack and a bit of FM grit, brighter and dirtier than the church organ."
+}

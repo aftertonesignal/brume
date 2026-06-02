@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Sine Flute",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.18,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 1.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.7, "Op2Level": 0.12, "Op3Level": 0.0,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.12, "FmIndexEnvAttack": 60.0, "FmIndexEnvDecay": 300.0,
+    "FmIndexEnvSustain": 0.5, "FmIndexEnvRelease": 200.0,
+    "FilterCutoff": 6000.0, "FilterResonance": 0.04, "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0, "FilterEnvDecay": 300.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 200.0,
+    "AmpAttack": 35.0, "AmpDecay": 200.0, "AmpSustain": 0.82, "AmpRelease": 220.0
+  },
+  "tags": ["fm", "factory", "lead"],
+  "author": "Brume Factory",
+  "notes": "STACK. Pure breathy sine flute — almost a clean sine with a whisper of 2nd harmonic and a soft attack. The gentle, mellow counterpoint to the bright leads."
+}

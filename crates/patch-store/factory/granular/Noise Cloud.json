@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "name": "Noise Cloud",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.4,
+    "GranularGrainSize": 0.22,
+    "GranularMorph": 0.85,
+    "GranularScatter": 0.7,
+    "GranularSpread": 0.95,
+    "GranularDrift": 0.5,
+    "GranularFmDepth": 6.0,
+    "GranularFmRatio": 4.3,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.3,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.15,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 600,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.7,
+    "AmpRelease": 1500
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Square grains, heavy FM, max scatter and drift collapse into a turbulent pitched-noise wash."
+}

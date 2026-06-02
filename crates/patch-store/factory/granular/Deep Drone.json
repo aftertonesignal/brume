@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Deep Drone",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.6,
+    "GranularGrainSize": 0.82,
+    "GranularMorph": 0.18,
+    "GranularScatter": 0.04,
+    "GranularSpread": 0.6,
+    "GranularDrift": 0.04,
+    "GranularFmDepth": 0.6,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.65,
+    "FilterCutoff": 3200,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1500,
+    "AmpDecay": 2500,
+    "AmpSustain": 0.8,
+    "AmpRelease": 2200
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Deep granular drone \u2014 long low triangle grains with a whisper of FM, a subterranean sustained bed."
+}

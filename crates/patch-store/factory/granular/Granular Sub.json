@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Granular Sub",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.78,
+    "GranularMorph": 0.0,
+    "GranularScatter": 0.02,
+    "GranularSpread": 0.4,
+    "GranularDrift": 0.008,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.6,
+    "FilterCutoff": 2600,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 5,
+    "AmpDecay": 250,
+    "AmpSustain": 0.66,
+    "AmpRelease": 180
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Pure sine sub \u2014 long dense grains pack into a round low fundamental. The darkest voice."
+}

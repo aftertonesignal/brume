@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Wurli",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 8.0,
+    "FmFeedback": 0.05,
+    "FmIndex": 0.6,
+    "Op1Ratio": 1.0, "Op2Ratio": 3.0, "Op3Ratio": 1.0,
+    "Op4Ratio": 2.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.64, "Op2Level": 0.34, "Op3Level": 0.2,
+    "Op4Level": 0.16, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.55, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 220.0,
+    "FmIndexEnvSustain": 0.18, "FmIndexEnvRelease": 200.0,
+    "FilterCutoff": 5200.0, "FilterResonance": 0.06, "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0, "FilterEnvDecay": 300.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 200.0,
+    "AmpAttack": 1.0, "AmpDecay": 850.0, "AmpSustain": 0.3, "AmpRelease": 380.0
+  },
+  "tags": ["fm", "factory", "keys"],
+  "author": "Brume Factory",
+  "notes": "PAIRS + a little feedback. Wurlitzer bark — grittier 3:1 attack and a sustained index floor for the reedy growl, vs. the cleaner Rhodes tine."
+}

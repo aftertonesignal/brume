@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Koto",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.6,
+    "HarmonicLevel2": 0.3,
+    "HarmonicLevel3": 0.2,
+    "HarmonicLevel4": 0.14,
+    "HarmonicLevel5": 0.1,
+    "HarmonicLevel6": 0.07,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.48,
+    "Inharmonicity": 0.08,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 9000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 1,
+    "FilterEnvDecay": 500,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 400,
+    "AmpAttack": 1,
+    "AmpDecay": 750,
+    "AmpSustain": 0.0,
+    "AmpRelease": 500
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Koto \u2014 inharmonically-detuned plucked string with a woody decay. The Eastern-string pluck vs. the clean spectral harp."
+}

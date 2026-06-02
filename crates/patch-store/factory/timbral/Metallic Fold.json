@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Metallic Fold",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.7,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.4,
+    "TimbralFmRatio": 5.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.2,
+    "MultiplierStages": 3.0,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 2200,
+    "AmpSustain": 0.0,
+    "AmpRelease": 1600
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "bell"
+  ],
+  "author": "Brume Factory",
+  "notes": "Metallic folded bell \u2014 inharmonic FM ratios over deep folds give a struck-metal ring."
+}

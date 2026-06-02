@@ -1,0 +1,16 @@
+{
+  "version": 1, "name": "Crystal Pad", "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.28, "HarmonicLevel2": 0.12, "HarmonicLevel3": 0.22, "HarmonicLevel4": 0.16,
+    "HarmonicLevel5": 0.26, "HarmonicLevel6": 0.18, "HarmonicLevel7": 0.14, "HarmonicLevel8": 0.1,
+    "HarmonicTilt": 0.42, "HarmonicOddEven": 0.5, "Inharmonicity": 0.045,
+    "ScanCenter": 0.72, "ScanWidth": 0.48, "HarmonicMorph": 0.12,
+    "HarmonicFmDepth": 0.015, "HarmonicFmRatio": 3.0, "HarmonicSpread": 0.45,
+    "FilterCutoff": 14000.0, "FilterResonance": 0.04, "FilterEnvDepth": 0.12,
+    "FilterEnvAttack": 1100.0, "FilterEnvDecay": 2200.0, "FilterEnvSustain": 0.7, "FilterEnvRelease": 1700.0,
+    "AmpAttack": 900.0, "AmpDecay": 1900.0, "AmpSustain": 0.7, "AmpRelease": 1800.0
+  },
+  "tags": ["harmonic", "factory", "pad"],
+  "author": "Brume Factory",
+  "notes": "Thin icy glass pad — almost no fundamental, upper partials scanned high with inharmonic shimmer. Glassy and weightless; the opposite pole from the warm string pad."
+}

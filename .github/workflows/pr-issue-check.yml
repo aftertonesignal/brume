@@ -1,0 +1,74 @@
+# PR issue-first check.
+#
+# CONTRIBUTING.md requires non-trivial code changes to be discussed
+# in a referenced issue with maintainer alignment before the PR.
+# Without enforcement, that rule lives only in prose and depends on
+# the maintainer remembering to apply it. This workflow makes it
+# self-enforcing: any external-contributor PR whose body lacks a
+# `#NNN` issue reference gets a templated comment + auto-close.
+#
+# Trusted authors (OWNER / MEMBER / COLLABORATOR) skip the check —
+# the maintainer's own PRs and any explicitly-trusted collaborators
+# don't need to round-trip through the issue tracker. Outside
+# contributors do.
+#
+# Trivial fixes (typo, broken link, obvious one-line bug) are still
+# allowed; the contributor opens a one-line issue referencing the
+# fix, then the PR with `closes #NNN`. That round-trip is cheap and
+# preserves the paper trail.
+name: PR issue-first check
+
+on:
+  pull_request_target:
+    types: [opened, edited, reopened]
+
+# `pull_request_target` runs in the base-repo context with write
+# tokens, which is what we need to comment + close. We never check
+# out the PR's code in this workflow, so the elevated token can't
+# be used to execute attacker code.
+permissions:
+  pull-requests: write
+
+jobs:
+  check:
+    name: Verify referenced issue
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: >-
+      github.event.pull_request.author_association != 'OWNER' &&
+      github.event.pull_request.author_association != 'MEMBER' &&
+      github.event.pull_request.author_association != 'COLLABORATOR'
+    steps:
+      - name: Check PR body for issue reference
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # Match `#N` issue/PR references anywhere in the body.
+          # GitHub's auto-link patterns (`closes #N`, `fixes #N`,
+          # plain `#N`, etc.) all share this shape, so a single
+          # regex covers the lot.
+          if printf '%s' "${PR_BODY:-}" | grep -qE '#[0-9]+'; then
+            echo "PR references an issue. Passing."
+            exit 0
+          fi
+
+          echo "PR body does not reference an issue; auto-closing."
+          gh pr comment "$PR_NUMBER" --body "$(cat <<'EOF'
+          Thanks for the PR. Brume requires non-trivial code changes to be aligned in an issue first, with explicit maintainer agreement on direction, before a PR opens. The full policy is in [CONTRIBUTING.md → Submitting changes](../blob/main/CONTRIBUTING.md#submitting-changes).
+
+          **What to do next:**
+
+          1. Open an issue describing the change you'd like to make ([bug report template](../issues/new/choose) or a blank issue for design / feature proposals).
+          2. Wait for a "sounds good" from the maintainer.
+          3. Open a fresh PR with `closes #NNN` (or similar) referencing that issue in the description.
+
+          **Trivial fixes** (typo, broken link, obvious one-line bug) are still welcome — open a one-line issue noting the fix, then the PR referencing it.
+
+          Closing this PR for now. No judgement on the change itself; the issue-first rule is what protects a single-maintainer review queue from drowning. Thanks for understanding.
+          EOF
+          )"
+          gh pr close "$PR_NUMBER"

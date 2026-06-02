@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Square Reed",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.38,
+    "GranularGrainSize": 0.6,
+    "GranularMorph": 1.0,
+    "GranularScatter": 0.04,
+    "GranularSpread": 0.6,
+    "GranularDrift": 0.0,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 4800,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 5,
+    "AmpDecay": 300,
+    "AmpSustain": 0.48,
+    "AmpRelease": 250
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Hollow square-grain reed \u2014 pure square morph gives an odd-harmonic clarinet/reed drone."
+}

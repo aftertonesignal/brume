@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Soft Keys",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.25,
+    "Symmetry": 0.05,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.1,
+    "TimbralFeedback": 0.0,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 900,
+    "AmpSustain": 0.35,
+    "AmpRelease": 500
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Soft electric keys \u2014 gentle triangle with a mellow decay."
+}

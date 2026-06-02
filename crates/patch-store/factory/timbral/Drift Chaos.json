@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "name": "Drift Chaos",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.85,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.6,
+    "TimbralFmRatio": 3.5,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.7,
+    "MultiplierStages": 4.0,
+    "FilterCutoff": 4000,
+    "FilterResonance": 0.25,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 200,
+    "AmpDecay": 1500,
+    "AmpSustain": 0.6,
+    "AmpRelease": 1000
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "texture",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Max feedback + deep FM folds = unstable drifting chaos. A pitched-FX/risers voice."
+}

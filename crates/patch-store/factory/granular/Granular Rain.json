@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Granular Rain",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.12,
+    "GranularMorph": 0.2,
+    "GranularScatter": 0.35,
+    "GranularSpread": 0.92,
+    "GranularDrift": 0.06,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.35,
+    "FilterCutoff": 9500,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 50,
+    "AmpDecay": 800,
+    "AmpSustain": 0.5,
+    "AmpRelease": 600
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Granular rain \u2014 a steady shower of short grains scattered wide across the stereo field."
+}

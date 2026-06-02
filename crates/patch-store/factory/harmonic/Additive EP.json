@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Additive EP",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.6,
+    "HarmonicLevel2": 0.3,
+    "HarmonicLevel3": 0.34,
+    "HarmonicLevel4": 0.16,
+    "HarmonicLevel5": 0.12,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.05,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.01,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.03,
+    "HarmonicFmRatio": 2.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 1000,
+    "AmpSustain": 0.3,
+    "AmpRelease": 500
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Additive electric piano \u2014 soft attack, mellow decaying body. A spectral take on the EP, distinct from the FM tine."
+}

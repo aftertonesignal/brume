@@ -1,0 +1,20 @@
+[package]
+name = "brume-scripting"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+brume-common = { path = "../common" }
+brume-app-protocol = { path = "../app-protocol" }
+brume-dsp-core = { path = "../dsp-core" }
+brume-engine-runtime = { path = "../engine-runtime" }
+brume-fx-chain = { path = "../fx-chain" }
+crossbeam-channel = { workspace = true }
+mlua = { version = "0.11", features = ["lua55", "vendored", "send"] }
+parking_lot = { workspace = true }
+
+[lints]
+workspace = true

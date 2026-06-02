@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "name": "Chaos Grains",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.18,
+    "GranularMorph": 0.6,
+    "GranularScatter": 0.82,
+    "GranularSpread": 0.9,
+    "GranularDrift": 0.6,
+    "GranularFmDepth": 8.0,
+    "GranularFmRatio": 5.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.3,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.2,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 200,
+    "AmpDecay": 1500,
+    "AmpSustain": 0.6,
+    "AmpRelease": 1000
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Maxed FM, scatter and drift = stochastic chaos. A granular FX/riser, not a tone."
+}

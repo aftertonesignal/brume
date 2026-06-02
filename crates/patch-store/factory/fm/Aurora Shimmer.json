@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Aurora Shimmer",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 7.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.16,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 3.01,
+    "Op4Ratio": 5.04, "Op5Ratio": 7.0, "Op6Ratio": 4.0,
+    "Op1Level": 0.52, "Op2Level": 0.3, "Op3Level": 0.2,
+    "Op4Level": 0.22, "Op5Level": 0.16, "Op6Level": 0.12,
+    "FmIndexEnvDepth": 0.14, "FmIndexEnvAttack": 1600.0, "FmIndexEnvDecay": 3200.0,
+    "FmIndexEnvSustain": 0.55, "FmIndexEnvRelease": 2000.0,
+    "FilterCutoff": 7000.0, "FilterResonance": 0.05, "FilterEnvDepth": 0.4,
+    "FilterEnvAttack": 1800.0, "FilterEnvDecay": 3600.0, "FilterEnvSustain": 0.6, "FilterEnvRelease": 2200.0,
+    "AmpAttack": 1400.0, "AmpDecay": 2400.0, "AmpSustain": 0.72, "AmpRelease": 2200.0
+  },
+  "tags": ["fm", "factory", "pad"],
+  "author": "Brume Factory",
+  "notes": "ADDITIVE. Evolving icy pad — slightly inharmonic upper partials (3.01/5.04) beat for a shimmer, opened by a very slow filter + index swell. Low index keeps the highs clean."
+}

@@ -1,0 +1,20 @@
+# Dependabot — keep SHA-pinned third-party actions current.
+#
+# CI workflows pin every `uses:` reference to a 40-char commit SHA
+# (with the human-readable version in a trailing comment) so that a
+# compromised v-tag retag can't quietly swap action code under us.
+# That pinning is only durable if SHAs still get updated when an
+# action ships a new release; this file is what makes that happen.
+#
+# Dependabot rewrites the SHA + comment in lockstep when it opens an
+# upgrade PR, so the workflow stays SHA-pinned without manual chasing.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: ci
+      include: scope

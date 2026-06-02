@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Maple Pluck",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.4,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.0,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 1,
+    "FilterEnvDecay": 130,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 120,
+    "AmpAttack": 1,
+    "AmpDecay": 350,
+    "AmpSustain": 0.0,
+    "AmpRelease": 250
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Woody maple pluck \u2014 a folded attack snapping off into silence."
+}

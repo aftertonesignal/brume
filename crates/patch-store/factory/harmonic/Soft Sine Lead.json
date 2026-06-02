@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Soft Sine Lead",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.82,
+    "HarmonicLevel2": 0.22,
+    "HarmonicLevel3": 0.08,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.45,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.62,
+    "HarmonicMorph": 0.05,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.2,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 30,
+    "AmpDecay": 200,
+    "AmpSustain": 0.82,
+    "AmpRelease": 220
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Pure mellow sine lead \u2014 nearly a sine with a whisper of 2nd harmonic and a soft attack. The gentle melodic voice."
+}

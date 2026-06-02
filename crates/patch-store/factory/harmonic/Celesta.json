@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Celesta",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.55,
+    "HarmonicLevel2": 0.2,
+    "HarmonicLevel3": 0.3,
+    "HarmonicLevel4": 0.12,
+    "HarmonicLevel5": 0.16,
+    "HarmonicLevel6": 0.08,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.15,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.02,
+    "ScanCenter": 0.6,
+    "ScanWidth": 0.5,
+    "HarmonicMorph": 0.15,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 11000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 800,
+    "AmpSustain": 0.0,
+    "AmpRelease": 600
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Celesta \u2014 delicate bright struck-bar with a clean ring. Mellower and woodier than the metallic glockenspiel."
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Glass FM",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.5,
+    "GranularMorph": 0.0,
+    "GranularScatter": 0.05,
+    "GranularSpread": 0.85,
+    "GranularDrift": 0.02,
+    "GranularFmDepth": 2.5,
+    "GranularFmRatio": 7.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 13000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 700,
+    "AmpDecay": 1900,
+    "AmpSustain": 0.62,
+    "AmpRelease": 1700
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Glassy high shimmer \u2014 a high FM ratio sprays sparkle across the top of a wide sine cloud."
+}

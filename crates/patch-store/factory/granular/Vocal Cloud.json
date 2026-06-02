@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Vocal Cloud",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.5,
+    "GranularMorph": 0.2,
+    "GranularScatter": 0.05,
+    "GranularSpread": 0.7,
+    "GranularDrift": 0.03,
+    "GranularFmDepth": 2.0,
+    "GranularFmRatio": 2.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 4500,
+    "FilterResonance": 0.35,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 200,
+    "FilterEnvDecay": 1200,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 900,
+    "AmpAttack": 300,
+    "AmpDecay": 1400,
+    "AmpSustain": 0.72,
+    "AmpRelease": 1200
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Vocal grain cloud \u2014 a resonant formant filter over 2:1 FM grains shapes a breathy choral vowel."
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Vox Choir",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.827,
+    "HarmonicLevel2": 0.504,
+    "HarmonicLevel3": 0.612,
+    "HarmonicLevel4": 0.324,
+    "HarmonicLevel5": 0.36,
+    "HarmonicLevel6": 0.18,
+    "HarmonicLevel7": 0.126,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.1,
+    "HarmonicOddEven": 0.55,
+    "Inharmonicity": 0.006,
+    "ScanCenter": 0.35,
+    "ScanWidth": 0.45,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.04,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.6,
+    "FilterCutoff": 5000.0,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.15,
+    "FilterEnvAttack": 300.0,
+    "FilterEnvDecay": 1200.0,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 900.0,
+    "AmpAttack": 220.0,
+    "AmpDecay": 1000.0,
+    "AmpSustain": 0.78,
+    "AmpRelease": 700.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Formant-scanned vocal pad \u2014 a low scan window sets the vowel, light FM + spread give breath and width. Soft swell."
+}

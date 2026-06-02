@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Reese Bass",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.4,
+    "Symmetry": 0.3,
+    "TimbralFmDepth": 0.2,
+    "TimbralFmRatio": 1.01,
+    "SubLevel": 0.2,
+    "TimbralFeedback": 0.05,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 2800,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 2,
+    "AmpDecay": 250,
+    "AmpSustain": 0.7,
+    "AmpRelease": 160
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Detuned reese \u2014 the 1.01 FM ratio beats against the core for that classic moving low growl."
+}

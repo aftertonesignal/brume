@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Bell Choir",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.5,
+    "HarmonicLevel2": 0.0,
+    "HarmonicLevel3": 0.3,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.24,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.16,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.1,
+    "HarmonicOddEven": 0.62,
+    "Inharmonicity": 0.34,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.5,
+    "FilterCutoff": 9000.0,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 300.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1.0,
+    "AmpDecay": 2400.0,
+    "AmpSustain": 0.0,
+    "AmpRelease": 1800.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "bell"
+  ],
+  "author": "Brume Factory",
+  "notes": "Inharmonic bell choir \u2014 odd partials detuned by heavy inharmonicity for a metallic gamelan/glass clang, struck and ringing out. Additive route to a bell vs. the FM carillon."
+}

@@ -1,0 +1,59 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/common",
+    "crates/dsp-core",
+    "crates/app-protocol",
+    "crates/engine-runtime",
+    "crates/audio-io",
+    "crates/modulation",
+    "crates/control-model",
+    "crates/midi-io",
+    "crates/ui-native",
+    "crates/patch-store",
+    "crates/settings",
+    "crates/fx-chain",
+    "crates/scripting",
+    "crates/platform-rpi",
+    "apps/brume-main",
+    "apps/brumectl",
+]
+# Phase 0 UI re-architecture spikes live here. Each prototype is its
+# own workspace so neither pollutes the main tree's `cargo build
+# --workspace` nor adds Iced/Slint to the main dependency graph
+# until the dual-spike concludes and the winner graduates into
+# `crates/ui-native/`.
+exclude = ["prototypes"]
+
+[workspace.package]
+version = "0.3.0"
+edition = "2024"
+rust-version = "1.87"
+license = "GPL-3.0-only"
+authors = ["Brandon Huey <hello@aftertone.co>"]
+
+[workspace.dependencies]
+# Cross-platform audio output (CoreAudio on macOS, ALSA on Linux)
+cpal = "0.15"
+# Bounded MPSC channels for lock-free audio-thread messaging
+crossbeam-channel = "0.5"
+# Non-poisoning, faster mutexes. Replaces std::sync::Mutex on hot paths
+# the audio callback touches (engine, MidiActivity) so a panic in any
+# thread can't permanently silence audio via poisoned locks.
+parking_lot = "0.12"
+# Derive macro for context-bearing error types
+thiserror = "2"
+# Serialization for IPC messages and preset state
+serde = { version = "1", features = ["derive"] }
+# MIDI I/O (ALSA on Linux, CoreMIDI on macOS)
+midir = "0.10"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+cast_possible_truncation = "allow"
+cast_sign_loss = "allow"
+cast_precision_loss = "allow"

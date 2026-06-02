@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Reed Bass",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.05,
+    "FmIndex": 0.5,
+    "Op1Ratio": 1.0, "Op2Ratio": 3.0, "Op3Ratio": 1.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.66, "Op2Level": 0.38, "Op3Level": 0.0,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.3, "FmIndexEnvAttack": 4.0, "FmIndexEnvDecay": 200.0,
+    "FmIndexEnvSustain": 0.4, "FmIndexEnvRelease": 160.0,
+    "FilterCutoff": 3400.0, "FilterResonance": 0.14, "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 3.0, "FilterEnvDecay": 240.0, "FilterEnvSustain": 0.4, "FilterEnvRelease": 200.0,
+    "AmpAttack": 2.0, "AmpDecay": 240.0, "AmpSustain": 0.68, "AmpRelease": 150.0
+  },
+  "tags": ["fm", "factory", "bass"],
+  "author": "Brume Factory",
+  "notes": "STACK. Hollow reedy bass — odd-harmonic 3:1 modulation + mild resonance gives a square/clarinet-ish woody tone. Sits between the pure sub and the gritty growl."
+}

@@ -1,0 +1,40 @@
+[package]
+name = "brume-main"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "brume"
+path = "src/main.rs"
+
+[dependencies]
+brume-engine-runtime = { path = "../../crates/engine-runtime" }
+brume-audio-io = { path = "../../crates/audio-io" }
+brume-app-protocol = { path = "../../crates/app-protocol" }
+brume-common = { path = "../../crates/common" }
+brume-modulation = { path = "../../crates/modulation" }
+brume-control-model = { path = "../../crates/control-model" }
+brume-midi-io = { path = "../../crates/midi-io" }
+brume-ui-native = { path = "../../crates/ui-native" }
+brume-patch-store = { path = "../../crates/patch-store" }
+brume-scripting = { path = "../../crates/scripting" }
+brume-fx-chain = { path = "../../crates/fx-chain" }
+brume-settings = { path = "../../crates/settings" }
+crossbeam-channel = { workspace = true }
+parking_lot = { workspace = true }
+serde_json = "1"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# Used to elevate the cpal audio thread to SCHED_FIFO at the first
+# callback firing. Without this the audio thread runs at default
+# SCHED_OTHER prio and gets preempted by iced's main-thread work
+# during sustained MIDI playback, producing audible underruns.
+# `thread-priority` encapsulates the unsafe sched_setscheduler call
+# behind a safe API so brume-main itself stays unsafe-free.
+thread-priority = "1.2"
+
+[lints]
+workspace = true

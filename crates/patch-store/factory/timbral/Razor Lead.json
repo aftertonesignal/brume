@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Razor Lead",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.5,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.1,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.3,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.12,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 3,
+    "AmpDecay": 200,
+    "AmpSustain": 0.8,
+    "AmpRelease": 180
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Hard-edged razor lead \u2014 feedback gives the cutting buzz, sync-style."
+}

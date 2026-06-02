@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "name": "Noise Fold",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.9,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.5,
+    "TimbralFmRatio": 7.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.6,
+    "MultiplierStages": 4.0,
+    "FilterCutoff": 3000,
+    "FilterResonance": 0.2,
+    "FilterEnvDepth": 0.5,
+    "FilterEnvAttack": 1200,
+    "FilterEnvDecay": 2600,
+    "FilterEnvSustain": 0.3,
+    "FilterEnvRelease": 1800,
+    "AmpAttack": 600,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.7,
+    "AmpRelease": 1500
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "texture",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Folder + feedback chaos through a resonant sweep \u2014 a pitched-noise riser/bed. Use sparingly."
+}

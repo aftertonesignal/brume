@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Clang Cloud",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.42,
+    "GranularMorph": 0.1,
+    "GranularScatter": 0.08,
+    "GranularSpread": 0.75,
+    "GranularDrift": 0.04,
+    "GranularFmDepth": 6.0,
+    "GranularFmRatio": 5.7,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.5,
+    "FilterCutoff": 9000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 700,
+    "AmpDecay": 1900,
+    "AmpSustain": 0.6,
+    "AmpRelease": 1600
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Clangorous inharmonic cloud \u2014 heavy FM at a wild ratio detunes the grains into shimmering metal."
+}

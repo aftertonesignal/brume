@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Warm Lead",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.02,
+    "FmIndex": 0.55,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 1.0,
+    "Op4Ratio": 0.5, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.78, "Op2Level": 0.34, "Op3Level": 0.22,
+    "Op4Level": 0.16, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.3, "FmIndexEnvAttack": 4.0, "FmIndexEnvDecay": 220.0,
+    "FmIndexEnvSustain": 0.4, "FmIndexEnvRelease": 200.0,
+    "FilterCutoff": 6500.0, "FilterResonance": 0.08, "FilterEnvDepth": 0.25,
+    "FilterEnvAttack": 6.0, "FilterEnvDecay": 260.0, "FilterEnvSustain": 0.5, "FilterEnvRelease": 240.0,
+    "AmpAttack": 5.0, "AmpDecay": 200.0, "AmpSustain": 0.78, "AmpRelease": 240.0
+  },
+  "tags": ["fm", "factory", "lead"],
+  "author": "Brume Factory",
+  "notes": "STACK. Round singing lead — 2:1 modulator for a vocal-ish formant, gentle filter env, sustain holds for legato play."
+}

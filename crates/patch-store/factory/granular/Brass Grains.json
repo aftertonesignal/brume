@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Brass Grains",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.55,
+    "GranularGrainSize": 0.45,
+    "GranularMorph": 0.3,
+    "GranularScatter": 0.05,
+    "GranularSpread": 0.6,
+    "GranularDrift": 0.01,
+    "GranularFmDepth": 3.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.5,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 8,
+    "FilterEnvDecay": 400,
+    "FilterEnvSustain": 0.7,
+    "FilterEnvRelease": 300,
+    "AmpAttack": 10,
+    "AmpDecay": 300,
+    "AmpSustain": 0.8,
+    "AmpRelease": 250
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Brassy FM grains \u2014 a 1:1 ratio fattens harmonics; the filter-env attack adds a brass-like swell."
+}

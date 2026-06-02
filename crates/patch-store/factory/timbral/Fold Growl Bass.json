@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Fold Growl Bass",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.6,
+    "Symmetry": -0.2,
+    "TimbralFmDepth": 0.1,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.3,
+    "TimbralFeedback": 0.1,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 3500,
+    "FilterResonance": 0.15,
+    "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 2,
+    "FilterEnvDecay": 200,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 180,
+    "AmpAttack": 2,
+    "AmpDecay": 220,
+    "AmpSustain": 0.65,
+    "AmpRelease": 150
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Wavefolded growl bass \u2014 the multiplier folds add buzzing upper harmonics that the filter env reins in."
+}

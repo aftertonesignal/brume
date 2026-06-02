@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Drawbar Organ",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.755,
+    "HarmonicLevel2": 0.504,
+    "HarmonicLevel3": 0.428,
+    "HarmonicLevel4": 0.277,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.201,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.126,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.42,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.1,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 11000.0,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 4.0,
+    "AmpDecay": 120.0,
+    "AmpSustain": 0.85,
+    "AmpRelease": 60.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Additive drawbar organ \u2014 octave + fifth partials, pure (no inharmonicity), instant on/off. True additive vs. the FM organ."
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Choir Drone",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.5,
+    "HarmonicLevel2": 0.3,
+    "HarmonicLevel3": 0.36,
+    "HarmonicLevel4": 0.2,
+    "HarmonicLevel5": 0.18,
+    "HarmonicLevel6": 0.1,
+    "HarmonicLevel7": 0.06,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.1,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.006,
+    "ScanCenter": 0.35,
+    "ScanWidth": 0.5,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.04,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.55,
+    "FilterCutoff": 4500,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.1,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 900,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.8,
+    "AmpRelease": 2000
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Sustained low choir bed \u2014 a static vocal drone (vs. the moving formant of the vox choir pad). Sits under leads and pads."
+}

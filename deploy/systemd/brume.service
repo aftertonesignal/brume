@@ -1,0 +1,23 @@
+[Unit]
+Description=Brume synthesizer
+# labwc's autostart is the launching edge; do not add Wants/After
+# that would race with the compositor's own startup.
+
+[Service]
+Type=simple
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+# Kiosk: the app self-fullscreens (borderless) when this is set; without
+# it brume comes up as a small decorated floating window.
+Environment=BRUME_FULLSCREEN=1
+WorkingDirectory=%h
+ExecStart=/usr/bin/brume
+Restart=on-failure
+RestartSec=3
+StandardOutput=append:%t/brume.log
+StandardError=inherit
+
+# Deliberately omit [Install] — brume.service is not enabled for any
+# target; labwc's autostart is the sole launcher. That sidesteps the
+# default.target race where brume tries to init GTK before the
+# compositor's Wayland socket is live (2026-04-22 validation).

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Square Lead",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.6,
+    "HarmonicLevel2": 0.0,
+    "HarmonicLevel3": 0.36,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.22,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.14,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.72,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.3,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.2,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.12,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 5,
+    "FilterEnvDecay": 240,
+    "FilterEnvSustain": 0.5,
+    "FilterEnvRelease": 220,
+    "AmpAttack": 4,
+    "AmpDecay": 200,
+    "AmpSustain": 0.8,
+    "AmpRelease": 200
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Hollow square lead \u2014 odd-harmonic clarinet/square tone with a touch of filter motion. Reedy vs. the bright saw lead."
+}

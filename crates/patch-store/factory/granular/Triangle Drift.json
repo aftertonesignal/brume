@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Triangle Drift",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.4,
+    "GranularGrainSize": 0.55,
+    "GranularMorph": 0.32,
+    "GranularScatter": 0.06,
+    "GranularSpread": 0.85,
+    "GranularDrift": 0.35,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.5,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 700,
+    "AmpDecay": 1900,
+    "AmpSustain": 0.72,
+    "AmpRelease": 1700
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Triangle grains wandering on heavy pitch drift \u2014 a brighter-than-sine bed that never sits still."
+}

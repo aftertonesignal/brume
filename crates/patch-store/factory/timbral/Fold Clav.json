@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Fold Clav",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.6,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.1,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 4500,
+    "FilterResonance": 0.18,
+    "FilterEnvDepth": 0.4,
+    "FilterEnvAttack": 1,
+    "FilterEnvDecay": 110,
+    "FilterEnvSustain": 0.1,
+    "FilterEnvRelease": 120,
+    "AmpAttack": 1,
+    "AmpDecay": 280,
+    "AmpSustain": 0.22,
+    "AmpRelease": 140
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Percussive folded clav \u2014 snappy resonant pluck with a short body."
+}

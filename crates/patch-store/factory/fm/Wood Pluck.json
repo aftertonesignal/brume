@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Wood Pluck",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.6,
+    "Op1Ratio": 1.0, "Op2Ratio": 3.0, "Op3Ratio": 1.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.82, "Op2Level": 0.3, "Op3Level": 0.0,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.55, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 90.0,
+    "FmIndexEnvSustain": 0.0, "FmIndexEnvRelease": 60.0,
+    "FilterCutoff": 8000.0, "FilterResonance": 0.06, "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 1.0, "FilterEnvDecay": 130.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 120.0,
+    "AmpAttack": 1.0, "AmpDecay": 320.0, "AmpSustain": 0.0, "AmpRelease": 180.0
+  },
+  "tags": ["fm", "factory", "pluck"],
+  "author": "Brume Factory",
+  "notes": "STACK. Woody mallet/pluck — sharp 3:1 click on the attack from a fast index decay, zero sustain so it's a true one-shot percussive voice."
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Steel Drum",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.5,
+    "HarmonicLevel2": 0.3,
+    "HarmonicLevel3": 0.4,
+    "HarmonicLevel4": 0.2,
+    "HarmonicLevel5": 0.16,
+    "HarmonicLevel6": 0.1,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.05,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.05,
+    "ScanCenter": 0.55,
+    "ScanWidth": 0.6,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.02,
+    "HarmonicFmRatio": 2.0,
+    "HarmonicSpread": 0.3,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.15,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 1000,
+    "AmpSustain": 0.12,
+    "AmpRelease": 500
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Steel drum \u2014 pitched-metal pan with a slight inharmonic ring and a short metallic body."
+}

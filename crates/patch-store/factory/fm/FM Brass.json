@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "FM Brass",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.03,
+    "FmIndex": 0.55,
+    "Op1Ratio": 1.0, "Op2Ratio": 1.0, "Op3Ratio": 2.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.62, "Op2Level": 0.46, "Op3Level": 0.2,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.5, "FmIndexEnvAttack": 70.0, "FmIndexEnvDecay": 500.0,
+    "FmIndexEnvSustain": 0.55, "FmIndexEnvRelease": 220.0,
+    "FilterCutoff": 5500.0, "FilterResonance": 0.07, "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 60.0, "FilterEnvDecay": 450.0, "FilterEnvSustain": 0.55, "FilterEnvRelease": 220.0,
+    "AmpAttack": 45.0, "AmpDecay": 300.0, "AmpSustain": 0.78, "AmpRelease": 200.0
+  },
+  "tags": ["fm", "factory", "lead"],
+  "author": "Brume Factory",
+  "notes": "STACK. Synth brass — the brightness swells in over ~70 ms (index + filter attack) for that characteristic brass blat, then settles. Plays well as a section or a lead."
+}

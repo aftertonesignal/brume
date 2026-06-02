@@ -1,0 +1,37 @@
+# Brume's UI. Library crate that brume-main calls into via
+# `brume_ui_native::run(...)`. iced + wgpu, Wayland-only on the CM5
+# (under labwc).
+
+[package]
+name = "brume-ui-native"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+brume-common = { path = "../common" }
+brume-app-protocol = { path = "../app-protocol" }
+brume-engine-runtime = { path = "../engine-runtime" }
+brume-audio-io = { path = "../audio-io" }
+brume-fx-chain = { path = "../fx-chain" }
+brume-midi-io = { path = "../midi-io" }
+brume-control-model = { path = "../control-model" }
+brume-modulation = { path = "../modulation" }
+brume-patch-store = { path = "../patch-store" }
+brume-scripting = { path = "../scripting" }
+
+# UI framework. `tokio` feature enables `iced::time::every` (the
+# periodic-tick subscription that drains the engine→UI crossbeam
+# channel). wgpu auto-falls-back to GL ES on the VC4 GPU; the
+# Phase 0 spike verified that path is hardware-accelerated.
+iced = { version = "0.13", features = ["tokio", "canvas"] }
+
+crossbeam-channel = { workspace = true }
+parking_lot = { workspace = true }
+serde = { workspace = true }
+serde_json = "1"
+
+[lints]
+workspace = true

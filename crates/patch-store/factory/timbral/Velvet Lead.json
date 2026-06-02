@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Velvet Lead",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.3,
+    "Symmetry": 0.1,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.1,
+    "TimbralFeedback": 0.02,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.08,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 5,
+    "AmpDecay": 200,
+    "AmpSustain": 0.8,
+    "AmpRelease": 200
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Round velvet lead \u2014 light folding, soft filter, holds for legato lines."
+}

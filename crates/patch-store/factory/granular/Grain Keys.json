@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Grain Keys",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.3,
+    "GranularMorph": 0.45,
+    "GranularScatter": 0.03,
+    "GranularSpread": 0.5,
+    "GranularDrift": 0.01,
+    "GranularFmDepth": 1.5,
+    "GranularFmRatio": 2.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.5,
+    "FilterCutoff": 8500,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 700,
+    "AmpSustain": 0.2,
+    "AmpRelease": 400
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Plucky grain keys \u2014 short bright grains with a 2:1 FM tine give a soft mallet-key attack."
+}

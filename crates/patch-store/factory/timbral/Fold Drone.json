@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Fold Drone",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.55,
+    "Symmetry": 0.3,
+    "TimbralFmDepth": 0.2,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.2,
+    "TimbralFeedback": 0.1,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 4000,
+    "FilterResonance": 0.08,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 1500,
+    "FilterEnvDecay": 2600,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 2000,
+    "AmpAttack": 1500,
+    "AmpDecay": 2400,
+    "AmpSustain": 0.78,
+    "AmpRelease": 2000
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Evolving fold drone \u2014 slow morphing wavefolder bed for under leads and pads."
+}

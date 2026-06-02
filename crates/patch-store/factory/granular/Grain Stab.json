@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Grain Stab",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.6,
+    "GranularGrainSize": 0.32,
+    "GranularMorph": 0.65,
+    "GranularScatter": 0.06,
+    "GranularSpread": 0.7,
+    "GranularDrift": 0.02,
+    "GranularFmDepth": 2.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.45,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 2,
+    "AmpDecay": 300,
+    "AmpSustain": 0.0,
+    "AmpRelease": 200
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Granular stab \u2014 dense saw grains with harmonic FM punch, a short rhythmic accent hit."
+}

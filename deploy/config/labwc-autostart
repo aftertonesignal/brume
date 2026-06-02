@@ -1,0 +1,14 @@
+#!/bin/sh
+# Paint a solid background before the Brume UI takes over, so the first
+# scan-out isn't whatever VC4 had in the framebuffer.
+swaybg -c "#060608" &
+
+# Small gap to let swaybg's first frame land on the compositor before
+# WebKit starts painting (otherwise the splash briefly overlays an
+# unsettled surface — 2026-04-22 validation notes).
+sleep 0.5
+
+# Brume's user-service unit is installed but NOT enabled for
+# default.target — labwc's autostart is the only path that launches
+# it, which keeps startup ordering deterministic.
+systemctl --user start brume.service

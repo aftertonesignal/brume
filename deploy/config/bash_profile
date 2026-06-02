@@ -1,0 +1,7 @@
+# On tty1, hand control to labwc (Wayland). The shell-exec form keeps
+# systemd's getty as PID 1's child so autologin → shell → labwc chains
+# cleanly; logging out of labwc drops back to the shell.
+if [ "$XDG_VTNR" = "1" ] && [ -z "$WAYLAND_DISPLAY" ]; then
+  export XDG_RUNTIME_DIR=/run/user/$(id -u)
+  exec labwc
+fi

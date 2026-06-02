@@ -1,0 +1,18 @@
+[package]
+name = "brume-midi-io"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+brume-common = { path = "../common" }
+brume-app-protocol = { path = "../app-protocol" }
+brume-control-model = { path = "../control-model" }
+midir = { workspace = true }
+crossbeam-channel = { workspace = true }
+parking_lot = { workspace = true }
+
+[lints]
+workspace = true

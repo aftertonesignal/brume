@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "FM Punch Bass",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.3,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.5,
+    "TimbralFmRatio": 1.5,
+    "SubLevel": 0.25,
+    "TimbralFeedback": 0.0,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 4000,
+    "FilterResonance": 0.08,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 180,
+    "AmpSustain": 0.6,
+    "AmpRelease": 120
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Punchy bass \u2014 a touch of FM gives the attack bite over a tight triangle body."
+}

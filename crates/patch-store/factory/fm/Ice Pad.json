@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Ice Pad",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 7.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.14,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 4.0,
+    "Op4Ratio": 6.0, "Op5Ratio": 8.0, "Op6Ratio": 3.0,
+    "Op1Level": 0.3, "Op2Level": 0.13, "Op3Level": 0.14,
+    "Op4Level": 0.16, "Op5Level": 0.12, "Op6Level": 0.08,
+    "FmIndexEnvDepth": 0.08, "FmIndexEnvAttack": 1200.0, "FmIndexEnvDecay": 2400.0,
+    "FmIndexEnvSustain": 0.6, "FmIndexEnvRelease": 1600.0,
+    "FilterCutoff": 13000.0, "FilterResonance": 0.04, "FilterEnvDepth": 0.12,
+    "FilterEnvAttack": 1100.0, "FilterEnvDecay": 2200.0, "FilterEnvSustain": 0.7, "FilterEnvRelease": 1700.0,
+    "AmpAttack": 900.0, "AmpDecay": 2000.0, "AmpSustain": 0.74, "AmpRelease": 1800.0
+  },
+  "tags": ["fm", "factory", "pad"],
+  "author": "Brume Factory",
+  "notes": "ADDITIVE. Icy glass pad — upper-tilted partials (4:1/6:1/8:1) carry the shimmer, but FM index is near zero so the top end is real partials, not foldover. Stays clean to C6."
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Grain Bass",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.4,
+    "GranularMorph": 0.55,
+    "GranularScatter": 0.03,
+    "GranularSpread": 0.4,
+    "GranularDrift": 0.01,
+    "GranularFmDepth": 1.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.5,
+    "FilterCutoff": 4000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 2,
+    "AmpDecay": 250,
+    "AmpSustain": 0.7,
+    "AmpRelease": 160
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Saw-edged granular bass \u2014 a textured low end with bite and a touch of harmonic FM grit."
+}

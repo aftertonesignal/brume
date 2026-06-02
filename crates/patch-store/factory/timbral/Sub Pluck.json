@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Sub Pluck",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.3,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.3,
+    "TimbralFeedback": 0.0,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 5000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 300,
+    "AmpSustain": 0.0,
+    "AmpRelease": 220
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Sub pluck \u2014 round low-end plunk for basslines and arps."
+}

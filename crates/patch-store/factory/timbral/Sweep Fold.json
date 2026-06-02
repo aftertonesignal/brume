@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Sweep Fold",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.5,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.1,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.1,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 1500,
+    "FilterResonance": 0.3,
+    "FilterEnvDepth": 0.7,
+    "FilterEnvAttack": 1500,
+    "FilterEnvDecay": 3000,
+    "FilterEnvSustain": 0.3,
+    "FilterEnvRelease": 2000,
+    "AmpAttack": 600,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.7,
+    "AmpRelease": 1500
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Filter-sweep fold \u2014 a big slow resonant sweep reveals the folder's harmonics over the hold."
+}

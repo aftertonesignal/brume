@@ -1,0 +1,28 @@
+/target
+*.swp
+.DS_Store
+/*.wav
+assets/wav/
+# Web content moved to the brume-web repo (~/code/aftertone/brume-web)
+# and deploys separately via fly.io. Anything left under web/ here is
+# legacy reference material preserved on disk; don't edit it.
+web/
+/staging/
+
+# Coding-agent metadata is local-only. The portable agent help lives
+# in .agents/ (committed for users' agents); nothing Claude/Codex-
+# specific gets shipped — including the local .claude/skills symlink
+# that points Claude Code at .agents/skills.
+/.claude/
+/.codex/
+
+# Local dev cruft + internal review docs. Kept on disk but never part
+# of the tree that gets copied into the public repo (a fresh
+# `git add -A` on the new repo skips these).
+/hello
+/hello.s
+/brume-screenshot.png
+/OSS_LAUNCH_REVIEW_*.md
+/FLIP_CHECKLIST.md
+/hermes-code-review-*.md
+/codex-analysis-*.md

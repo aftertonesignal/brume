@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Sub Sine",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.85,
+    "HarmonicLevel2": 0.0,
+    "HarmonicLevel3": 0.0,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.4,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.25,
+    "ScanWidth": 0.3,
+    "HarmonicMorph": 0.0,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.15,
+    "FilterCutoff": 2500,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 2,
+    "AmpDecay": 200,
+    "AmpSustain": 0.8,
+    "AmpRelease": 140
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Pure deep sub \u2014 single fundamental partial, low scan, heavy bass tilt. Clean and round, no harmonics."
+}

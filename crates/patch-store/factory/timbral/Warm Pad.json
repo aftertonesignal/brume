@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Warm Pad",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.3,
+    "Symmetry": 0.1,
+    "TimbralFmDepth": 0.0,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.15,
+    "TimbralFeedback": 0.03,
+    "MultiplierStages": 1.0,
+    "FilterCutoff": 4500,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.15,
+    "FilterEnvAttack": 700,
+    "FilterEnvDecay": 1800,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 1500,
+    "AmpAttack": 700,
+    "AmpDecay": 1800,
+    "AmpSustain": 0.75,
+    "AmpRelease": 1600
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Warm analog pad \u2014 soft folding, slow swell, rolled-off top."
+}

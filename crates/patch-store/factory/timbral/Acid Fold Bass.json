@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "name": "Acid Fold Bass",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.8,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.2,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.2,
+    "TimbralFeedback": 0.4,
+    "MultiplierStages": 3.0,
+    "FilterCutoff": 2200,
+    "FilterResonance": 0.42,
+    "FilterEnvDepth": 0.5,
+    "FilterEnvAttack": 2,
+    "FilterEnvDecay": 300,
+    "FilterEnvSustain": 0.2,
+    "FilterEnvRelease": 200,
+    "AmpAttack": 2,
+    "AmpDecay": 240,
+    "AmpSustain": 0.7,
+    "AmpRelease": 150
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "bass",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Heavy fold + feedback through a resonant sweep \u2014 squelchy acid bass with bite."
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Vocal Lead",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.45,
+    "Symmetry": 0.5,
+    "TimbralFmDepth": 0.05,
+    "TimbralFmRatio": 1.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.05,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 5000,
+    "FilterResonance": 0.15,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 8,
+    "AmpDecay": 220,
+    "AmpSustain": 0.8,
+    "AmpRelease": 220
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Formant/vocal lead \u2014 asymmetry shapes a throaty vowel into the tone."
+}

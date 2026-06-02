@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Pipe Organ",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.55,
+    "HarmonicLevel2": 0.4,
+    "HarmonicLevel3": 0.38,
+    "HarmonicLevel4": 0.28,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.22,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.14,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.42,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.55,
+    "ScanWidth": 0.68,
+    "HarmonicMorph": 0.1,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.35,
+    "FilterCutoff": 10000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 30,
+    "AmpDecay": 150,
+    "AmpSustain": 0.88,
+    "AmpRelease": 200
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Church pipe organ \u2014 full octave/fifth additive stack, soft attack and a slower release than the snappy Hammond drawbar."
+}

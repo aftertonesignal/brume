@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Glass Lead",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.78,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.18,
+    "TimbralFmRatio": 3.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.06,
+    "MultiplierStages": 3.0,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.07,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 3,
+    "AmpDecay": 200,
+    "AmpSustain": 0.78,
+    "AmpRelease": 180
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Bright glassy lead \u2014 high fold stages over an FM sparkle, filter-capped so the top stays clean."
+}

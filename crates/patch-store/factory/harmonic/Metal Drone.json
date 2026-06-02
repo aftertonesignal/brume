@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "name": "Metal Drone",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.4,
+    "HarmonicLevel2": 0.2,
+    "HarmonicLevel3": 0.3,
+    "HarmonicLevel4": 0.18,
+    "HarmonicLevel5": 0.24,
+    "HarmonicLevel6": 0.14,
+    "HarmonicLevel7": 0.1,
+    "HarmonicLevel8": 0.08,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.55,
+    "Inharmonicity": 0.7,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.8,
+    "HarmonicMorph": 0.3,
+    "HarmonicFmDepth": 0.04,
+    "HarmonicFmRatio": 1.7,
+    "HarmonicSpread": 0.6,
+    "FilterCutoff": 5000,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 1500,
+    "FilterEnvDecay": 3000,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 2000,
+    "AmpAttack": 800,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.75,
+    "AmpRelease": 1800
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "texture",
+    "noisy"
+  ],
+  "author": "Brume Factory",
+  "notes": "NOISY. Heavy-inharmonicity metallic drone \u2014 partials detuned into a clangorous shimmer, opened slowly by a filter sweep. An industrial bed; use sparingly."
+}

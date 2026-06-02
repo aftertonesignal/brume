@@ -1,0 +1,381 @@
+# Release — runs on every `v*` tag push.
+#
+# Designed against BUILD_AND_RELEASE.md §5b.
+# `scripts/release.sh` produces the tag locally; `git push --follow-tags`
+# is what triggers this workflow. There is no other entry point.
+#
+# Pipeline:
+#
+#   1. `version` job derives the bare X.Y.Z from the tag (GITHUB_REF_NAME
+#      is "vX.Y.Z"; artifact filenames want "X.Y.Z").
+#
+#   2. `build` job — 3-entry matrix, one native runner per target.
+#      Each entry produces a single binary artifact uploaded via
+#      actions/upload-artifact. No cross-compilation: macOS arm64
+#      builds on macos-latest (Apple Silicon), Linux x86_64 builds on
+#      ubuntu-latest, and Linux aarch64 builds on ubuntu-24.04-arm
+#      (GitHub-hosted ARM Linux runner). Intel macOS is not built —
+#      the Intel runner image was retired from GitHub-hosted runners,
+#      and the user base for x86_64 macOS binaries has shrunk far
+#      enough that paying to keep the matrix entry alive (cross-build
+#      from arm64, or `macos-26-intel`) isn't worth it.
+#
+#   3. `release` job — gathers the three artifacts, renames them to
+#      the canonical `<base>-<X.Y.Z>-<target>` form, extracts the
+#      `[X.Y.Z]` block from CHANGELOG.md as the release body, and
+#      creates the GitHub Release.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+# One release at a time per tag. Don't cancel an in-flight release if a
+# late push happens — partial releases are worse than slow ones.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: 0
+
+jobs:
+  # ---- Derive the bare version (drop the leading 'v') and validate
+  # the tag is shaped like SemVer. Surfaces as a job output so every
+  # downstream step can reference `${{ needs.version.outputs.version }}`
+  # without recomputing.
+  version:
+    name: derive version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.derive.outputs.version }}
+    steps:
+      - name: Derive + validate version from tag
+        id: derive
+        run: |
+          set -euo pipefail
+          ver="${GITHUB_REF_NAME#v}"
+          if [[ ! "$ver" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[A-Za-z0-9.-]+)?$ ]]; then
+            echo "::error::Tag '$GITHUB_REF_NAME' is not a SemVer X.Y.Z (or X.Y.Z-prerelease)"
+            exit 1
+          fi
+          echo "version=$ver" >> "$GITHUB_OUTPUT"
+          echo "Releasing Brume $ver from tag $GITHUB_REF_NAME"
+
+  # ---- Per-target binary builds. Each matrix entry runs on a native
+  # runner for that target architecture, so there's no cross-compile
+  # toolchain to maintain. Each upload-artifact step produces a single
+  # binary in target/release/, named after the matrix label.
+  build:
+    name: build (${{ matrix.label }})
+    needs: version
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    strategy:
+      # Don't kill sibling builds when one target fails. A broken
+      # macOS Intel build shouldn't block the macOS arm64 artifact
+      # from making it into the release.
+      fail-fast: false
+      matrix:
+        include:
+          - label: brumectl-macos-arm64
+            runner: macos-latest
+            crate: brumectl
+            binary: brumectl
+            need_linux_deps: false
+          - label: brumectl-linux-x86_64
+            runner: ubuntu-latest
+            crate: brumectl
+            binary: brumectl
+            # brumectl itself is fairly self-contained, but cargo
+            # builds the rest of the workspace's path-dep closure;
+            # cargo build -p brumectl on Linux hits brume-control-model
+            # and friends (which are pure Rust) so no apt deps needed.
+            need_linux_deps: false
+          - label: brume-aarch64-unknown-linux-gnu
+            runner: ubuntu-24.04-arm
+            crate: brume-main
+            binary: brume
+            need_linux_deps: true
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install Rust toolchain
+        # rust-toolchain.toml resolves to channel = stable; rustup
+        # show installs the resolved toolchain.
+        run: rustup show
+
+      - name: Install Linux build deps (brume only)
+        if: matrix.need_linux_deps
+        # Same closure as ci.yml's linux job: ALSA for cpal +
+        # pkg-config. Per-step timeout against Debian-mirror outages.
+        timeout-minutes: 5
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            pkg-config \
+            libasound2-dev
+
+      - name: Cache cargo registry + target/
+        uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+        with:
+          prefix-key: release-${{ matrix.label }}
+
+      - name: cargo build --release -p ${{ matrix.crate }}
+        # `--locked` refuses to mutate Cargo.lock at build time. The
+        # release artifact must correspond exactly to the Cargo.lock
+        # committed at this tag — otherwise a yanked transitive can
+        # silently shift resolution mid-build and the published bytes
+        # no longer match what `git checkout vX.Y.Z` would rebuild.
+        run: cargo build --release --locked -p ${{ matrix.crate }}
+
+      - name: Smoke-test binary
+        # Cheap pre-publish guard against build-host-loadable failures:
+        # corrupt ELF/Mach-O headers, missing symbols, dynlink errors
+        # against libs the runner has installed. brumectl supports
+        # `--version` (clap-derived) and runs natively on every matrix
+        # runner. brume-main has no CLI parser yet and would start the
+        # engine if invoked, so verify dynamic-link resolution instead.
+        # This won't catch CM5-specific runtime issues (glibc skew,
+        # missing-on-target libs) — that's a deploy-time concern.
+        run: |
+          set -euo pipefail
+          binpath="target/release/${{ matrix.binary }}"
+          file "$binpath"
+          if [ "${{ matrix.binary }}" = "brumectl" ]; then
+            "$binpath" --version
+            "$binpath" --help > /dev/null
+          else
+            ldd "$binpath"
+          fi
+
+      - name: Stage artifact
+        # Copy under a label-named filename so the download-artifact
+        # tree in the release job is unambiguous. The canonical
+        # `<base>-<VERSION>-<target>` rename happens once, in the
+        # release job, where VERSION is in scope.
+        run: |
+          set -euo pipefail
+          mkdir -p staged
+          cp "target/release/${{ matrix.binary }}" "staged/${{ matrix.label }}"
+          ls -la staged/
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ matrix.label }}
+          path: staged/${{ matrix.label }}
+          if-no-files-found: error
+          retention-days: 7
+
+  # ---- Single release job: pull all four artifacts, rename them to
+  # the canonical naming, extract the matching CHANGELOG block, and
+  # create the GitHub Release. Splitting "build per-target" from
+  # "release once" means a single CHANGELOG/release-create step
+  # regardless of matrix size, and one place to inspect failures.
+  release:
+    name: create GitHub Release
+    needs: [version, build]
+    runs-on: ubuntu-latest
+    permissions:
+      # Required for softprops/action-gh-release to create a release
+      # and upload assets. Read-only is the workflow default; this
+      # opt-in is explicit and minimal.
+      contents: write
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          path: artifacts
+          # No `pattern` — pulls every artifact uploaded by the build
+          # matrix. Each lands at artifacts/<label>/<single file>.
+
+      - name: Assert all expected artifacts are present
+        # `fail-fast: false` on the build matrix means a single broken
+        # target won't kill its siblings — desirable for the Mac
+        # variants, but it leaves the release job to publish whatever
+        # made it through. Without this guard, a failed-to-schedule
+        # `ubuntu-24.04-arm` runner would publish a release page with
+        # three brumectl variants and no brume binary, silently. The
+        # build matrix is the source of truth for what must be
+        # present; mirror it here.
+        run: |
+          set -euo pipefail
+          expected=(
+            brumectl-macos-arm64
+            brumectl-linux-x86_64
+            brume-aarch64-unknown-linux-gnu
+          )
+          missing=()
+          for label in "${expected[@]}"; do
+            if [ ! -d "artifacts/$label" ]; then
+              missing+=("$label")
+            fi
+          done
+          if [ "${#missing[@]}" -gt 0 ]; then
+            echo "::error::missing artifacts (build matrix did not produce them): ${missing[*]}"
+            exit 1
+          fi
+          echo "all ${#expected[@]} expected artifacts present"
+
+      - name: Rename to canonical artifact names
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        # Each matrix label is "<base>-<target>", e.g.
+        # "brumectl-macos-arm64" or "brume-aarch64-unknown-linux-gnu".
+        # Reformat to "<base>-<VERSION>-<target>". Re-set the executable bit because
+        # zip round-trips can drop it.
+        #
+        # Walk the same expected-labels list as the presence guard
+        # above (kept in lockstep with the build matrix) and look up
+        # each artifact at its known path — `artifacts/<label>/<label>`,
+        # since the upload step's `path: staged/<label>` produces a
+        # single file named `<label>` inside the artifact tarball.
+        # Avoids the previous globbed walk that would silently misname
+        # the destination if an artifact ever contained more than one
+        # file.
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          expected=(
+            brumectl-macos-arm64
+            brumectl-linux-x86_64
+            brume-aarch64-unknown-linux-gnu
+          )
+          for label in "${expected[@]}"; do
+            base="${label%%-*}"     # "brumectl" or "brume"
+            target="${label#*-}"    # "macos-arm64", "linux-x86_64", "aarch64-unknown-linux-gnu"
+            src="artifacts/$label/$label"
+            dst="release/${base}-${VERSION}-${target}"
+            [ -f "$src" ] || { echo "::error::expected single file at $src, not found"; exit 1; }
+            cp "$src" "$dst"
+            chmod +x "$dst"
+          done
+          ls -la release/
+
+      - name: Bundle factory presets
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        # The factory preset tree (crates/patch-store/factory) is
+        # target-independent JSON; ship one versioned tarball next to
+        # the binaries. brumectl install drops it at
+        # /usr/share/brume/factory — without it an installed Brume boots
+        # with an empty LIBRARY. tar root is the per-engine dirs
+        # (fm/ harmonic/ timbral/ granular/), matching what the
+        # patch-store loader expects under the factory root. Placed
+        # before the SHA-256 step so it gets a sidecar and is uploaded
+        # by `files: release/*` like every other asset. Runner is
+        # ubuntu (GNU tar) so no AppleDouble sidecar concern.
+        run: |
+          set -euo pipefail
+          tar -czf "release/brume-${VERSION}-factory.tar.gz" \
+            -C crates/patch-store/factory .
+          ls -la release/
+
+      - name: Generate SHA-256 sidecars
+        # One `<artifact>.sha256` per binary, attached to the release
+        # alongside the artifact. Lets users verify a download against
+        # the published hash:
+        #
+        #     shasum -a 256 -c brumectl-X.Y.Z-macos-arm64.sha256
+        #
+        # Format matches what `shasum -a 256` and `sha256sum -c`
+        # consume on macOS and Linux respectively.
+        run: |
+          set -euo pipefail
+          cd release
+          for f in *; do
+            case "$f" in *.sha256) continue ;; esac
+            sha256sum "$f" > "$f.sha256"
+          done
+          ls -la
+
+      - name: Extract CHANGELOG block for this release
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        # Print everything between `## [VERSION]` and either the next
+        # `## [` heading or the footer reference-link block (lines
+        # like `[Unreleased]: https://...`). The footer-link guard
+        # matters when X.Y.Z is the most recent versioned entry: there
+        # is no next `## [` line, so we'd otherwise spill over into
+        # the link footer. Skips the [Unreleased] block at the top
+        # because in_block only flips on when the matched line is
+        # `## [VERSION]`.
+        run: |
+          set -euo pipefail
+          awk -v ver="$VERSION" '
+            /^## \[/ {
+              if (in_block) exit
+              if ($0 ~ "^## \\[" ver "\\]") { in_block = 1; next }
+            }
+            /^\[[^]]+\]: / { if (in_block) exit }
+            in_block { print }
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "::error::No [${VERSION}] block found in CHANGELOG.md — did scripts/release.sh promote [Unreleased] correctly?"
+            exit 1
+          fi
+          echo "===== release notes ====="
+          cat release-notes.md
+          echo "========================="
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3.0.0
+        with:
+          name: Brume ${{ needs.version.outputs.version }}
+          body_path: release-notes.md
+          files: release/*
+          draft: false
+          # Auto-mark X.Y.Z-anything as a prerelease (e.g. 0.3.0-beta.1).
+          prerelease: ${{ contains(needs.version.outputs.version, '-') }}
+          # Refuse to create the release if any expected file is missing
+          # from `release/*`. Better to fail loudly than to publish a
+          # partial release page.
+          fail_on_unmatched_files: true
+
+  # ---- Stamp the companion site (brume-web) source with this
+  # version. brume-web's docs.html / develop.html carry "rev X.Y.Z"
+  # strings inside `<!--BRUME-VERSION-->...<!--/BRUME-VERSION-->`
+  # markers; brume-web's `stamp.yml` workflow rewrites the marker
+  # contents and commits the bump back to its main branch. It does
+  # NOT deploy — `flyctl deploy` from the maintainer's workstation
+  # ships whatever the source currently has, on the maintainer's
+  # cadence.
+  #
+  # Failure here is non-fatal for the release: the GitHub Release
+  # is already published. `continue-on-error: true` on the dispatch
+  # step keeps a transient API hiccup or missing PAT from
+  # retroactively failing the workflow run.
+  stamp-web:
+    name: stamp brume-web source
+    needs: [version, release]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Dispatch stamp to brume-web
+        continue-on-error: true
+        env:
+          # Fine-grained PAT scoped to aftertonesignal/brume-web with
+          # `Actions: read and write` permission. Configured as a
+          # repo secret out-of-band; see BUILD_AND_RELEASE.md §3.
+          GH_TOKEN: ${{ secrets.BRUME_WEB_DISPATCH_TOKEN }}
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::BRUME_WEB_DISPATCH_TOKEN not set — skipping brume-web source stamp. Bump it manually with: gh workflow run stamp.yml --repo aftertonesignal/brume-web -f version=${VERSION}"
+            exit 0
+          fi
+          gh api \
+            --method POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            repos/aftertonesignal/brume-web/dispatches \
+            -f "event_type=brume-released" \
+            -F "client_payload[version]=${VERSION}"
+          echo "dispatched brume-released event with version=${VERSION}"

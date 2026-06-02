@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Airy Cloud",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.18,
+    "GranularGrainSize": 0.4,
+    "GranularMorph": 0.12,
+    "GranularScatter": 0.12,
+    "GranularSpread": 0.9,
+    "GranularDrift": 0.03,
+    "GranularFmDepth": 1.2,
+    "GranularFmRatio": 5.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.45,
+    "FilterCutoff": 11000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 800,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.7,
+    "AmpRelease": 1800
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Sparse airy cloud \u2014 few soft grains with a high FM shimmer threaded through the gaps. Bright and weightless."
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Tuned Grains",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.5,
+    "GranularGrainSize": 0.5,
+    "GranularMorph": 0.22,
+    "GranularScatter": 0.02,
+    "GranularSpread": 0.5,
+    "GranularDrift": 0.008,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 20,
+    "AmpDecay": 600,
+    "AmpSustain": 0.7,
+    "AmpRelease": 500
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "keys"
+  ],
+  "author": "Brume Factory",
+  "notes": "Playable tuned cloud \u2014 clean triangle grains, near-zero scatter/drift hold it on pitch for melodies."
+}

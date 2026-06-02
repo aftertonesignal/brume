@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Octave Lead",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.5,
+    "HarmonicLevel2": 0.4,
+    "HarmonicLevel3": 0.2,
+    "HarmonicLevel4": 0.34,
+    "HarmonicLevel5": 0.0,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.0,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.4,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.5,
+    "HarmonicMorph": 0.15,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.25,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.1,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 4,
+    "AmpDecay": 180,
+    "AmpSustain": 0.82,
+    "AmpRelease": 180
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Octave-stacked lead \u2014 fundamental plus octave and double-octave partials for an organ-ish fifth-and-octave fatness."
+}

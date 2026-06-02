@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Smooth Cloud",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.55,
+    "GranularGrainSize": 0.7,
+    "GranularMorph": 0.0,
+    "GranularScatter": 0.05,
+    "GranularSpread": 0.8,
+    "GranularDrift": 0.02,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 600,
+    "AmpDecay": 1800,
+    "AmpSustain": 0.56,
+    "AmpRelease": 1600
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Clean sine grain cloud \u2014 long overlapping grains blur into a soft, glassy pad."
+}

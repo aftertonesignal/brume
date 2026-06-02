@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Saw Swarm",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.55,
+    "GranularGrainSize": 0.38,
+    "GranularMorph": 0.72,
+    "GranularScatter": 0.08,
+    "GranularSpread": 0.8,
+    "GranularDrift": 0.02,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.45,
+    "FilterCutoff": 7000,
+    "FilterResonance": 0.12,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 500,
+    "AmpDecay": 1700,
+    "AmpSustain": 0.72,
+    "AmpRelease": 1500
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Buzzy saw-grain swarm \u2014 the saw morph brings a bright, reedy ensemble buzz the old set never had."
+}

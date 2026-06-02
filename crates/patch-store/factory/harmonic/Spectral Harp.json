@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Spectral Harp",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.951,
+    "HarmonicLevel2": 0.475,
+    "HarmonicLevel3": 0.38,
+    "HarmonicLevel4": 0.254,
+    "HarmonicLevel5": 0.19,
+    "HarmonicLevel6": 0.127,
+    "HarmonicLevel7": 0.079,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.1,
+    "HarmonicOddEven": 0.48,
+    "Inharmonicity": 0.004,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.7,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.4,
+    "FilterCutoff": 10000.0,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 1.0,
+    "FilterEnvDecay": 600.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 500.0,
+    "AmpAttack": 1.0,
+    "AmpDecay": 850.0,
+    "AmpSustain": 0.0,
+    "AmpRelease": 600.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Additive harp/koto pluck \u2014 bright harmonic-series pluck that rings out and decays cleanly. The plucked counterpart to the sustained harmonic voices."
+}

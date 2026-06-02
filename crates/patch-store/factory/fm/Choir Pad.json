@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Choir Pad",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 7.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.22,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 3.0,
+    "Op4Ratio": 4.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.6, "Op2Level": 0.4, "Op3Level": 0.16,
+    "Op4Level": 0.1, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.18, "FmIndexEnvAttack": 900.0, "FmIndexEnvDecay": 2000.0,
+    "FmIndexEnvSustain": 0.6, "FmIndexEnvRelease": 1600.0,
+    "FilterCutoff": 4200.0, "FilterResonance": 0.05, "FilterEnvDepth": 0.18,
+    "FilterEnvAttack": 900.0, "FilterEnvDecay": 1800.0, "FilterEnvSustain": 0.6, "FilterEnvRelease": 1600.0,
+    "AmpAttack": 850.0, "AmpDecay": 1600.0, "AmpSustain": 0.75, "AmpRelease": 1700.0
+  },
+  "tags": ["fm", "factory", "pad"],
+  "author": "Brume Factory",
+  "notes": "ADDITIVE. Vocal-ish choir pad — low formant partials, very slow swell. Warmer and more voiced than the glass pad."
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Glass Fold Pad",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.6,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.2,
+    "TimbralFmRatio": 3.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.04,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 9000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 900,
+    "FilterEnvDecay": 2200,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 1700,
+    "AmpAttack": 700,
+    "AmpDecay": 1800,
+    "AmpSustain": 0.72,
+    "AmpRelease": 1700
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Brighter folded pad \u2014 FM sparkle on the upper fold harmonics gives a shimmer."
+}

@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Glass Atmosphere",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.45,
+    "GranularGrainSize": 0.65,
+    "GranularMorph": 0.0,
+    "GranularScatter": 0.06,
+    "GranularSpread": 0.9,
+    "GranularDrift": 0.06,
+    "GranularFmDepth": 1.8,
+    "GranularFmRatio": 6.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.55,
+    "FilterCutoff": 13000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.2,
+    "FilterEnvAttack": 1500,
+    "FilterEnvDecay": 3000,
+    "FilterEnvSustain": 0.5,
+    "FilterEnvRelease": 2000,
+    "AmpAttack": 1000,
+    "AmpDecay": 2200,
+    "AmpSustain": 0.62,
+    "AmpRelease": 1900
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Evolving icy atmosphere \u2014 wide FM-sparkle grains under a slow filter opening. The icy ambient bed."
+}

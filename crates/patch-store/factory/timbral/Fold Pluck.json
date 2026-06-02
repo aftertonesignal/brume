@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "Fold Pluck",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.65,
+    "Symmetry": 0.0,
+    "TimbralFmDepth": 0.1,
+    "TimbralFmRatio": 2.0,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.0,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 8000,
+    "FilterResonance": 0.08,
+    "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 1,
+    "FilterEnvDecay": 140,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 120,
+    "AmpAttack": 1,
+    "AmpDecay": 400,
+    "AmpSustain": 0.0,
+    "AmpRelease": 300
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pluck"
+  ],
+  "author": "Brume Factory",
+  "notes": "Bright folded pluck \u2014 more harmonic sparkle on the attack, clean ring-out."
+}

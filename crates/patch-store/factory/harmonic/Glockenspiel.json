@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Glockenspiel",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.5,
+    "HarmonicLevel2": 0.0,
+    "HarmonicLevel3": 0.28,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.24,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.18,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.15,
+    "HarmonicOddEven": 0.6,
+    "Inharmonicity": 0.2,
+    "ScanCenter": 0.6,
+    "ScanWidth": 0.5,
+    "HarmonicMorph": 0.2,
+    "HarmonicFmDepth": 0.0,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.4,
+    "FilterCutoff": 12000,
+    "FilterResonance": 0.04,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 1,
+    "AmpDecay": 1100,
+    "AmpSustain": 0.0,
+    "AmpRelease": 800
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "bell"
+  ],
+  "author": "Brume Factory",
+  "notes": "Glockenspiel \u2014 bright short metallic bars, moderate inharmonicity. The sparkly high bell."
+}

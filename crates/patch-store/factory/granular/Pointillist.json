@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "name": "Pointillist",
+  "mode": "granular",
+  "params": {
+    "GranularDensity": 0.08,
+    "GranularGrainSize": 0.05,
+    "GranularMorph": 0.0,
+    "GranularScatter": 0.2,
+    "GranularSpread": 0.85,
+    "GranularDrift": 0.05,
+    "GranularFmDepth": 0.0,
+    "GranularFmRatio": 1.0,
+    "GranularPosition": 0.0,
+    "GranularGrainShape": 0.35,
+    "FilterCutoff": 9000,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 200.0,
+    "FilterEnvSustain": 0.0,
+    "FilterEnvRelease": 200.0,
+    "AmpAttack": 10,
+    "AmpDecay": 400,
+    "AmpSustain": 0.6,
+    "AmpRelease": 400
+  },
+  "tags": [
+    "granular",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Sparse sine droplets \u2014 very short grains fired slowly, individual points across the field."
+}

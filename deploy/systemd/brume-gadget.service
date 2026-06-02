@@ -1,0 +1,23 @@
+[Unit]
+Description=Brume Meridian USB gadget (UAC2 + MIDI)
+# configfs must be mounted before we can write to /sys/kernel/config.
+# On modern systemd this is handled via sys-kernel-config.mount.
+After=sys-kernel-config.mount sysinit.target
+Wants=sys-kernel-config.mount
+# We want this up before any user session / Brume itself opens ALSA default
+# (which is now routed to hw:UAC2Gadget,0 via /etc/asound.conf).
+Before=multi-user.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/brume-gadget-uac2-midi.sh
+# On stop, unbind the gadget (write empty string to UDC) and optionally
+# tear down the configfs tree. Leaving functions configured is harmless.
+ExecStop=/bin/sh -c 'echo "" > /sys/kernel/config/usb_gadget/brume/UDC 2>/dev/null || true'
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

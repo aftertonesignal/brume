@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Reso Growl Bass",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 1.0,
+    "FmFeedback": 0.04,
+    "FmIndex": 0.7,
+    "Op1Ratio": 1.0, "Op2Ratio": 1.0, "Op3Ratio": 2.0,
+    "Op4Ratio": 1.0, "Op5Ratio": 0.5, "Op6Ratio": 3.0,
+    "Op1Level": 0.7, "Op2Level": 0.42, "Op3Level": 0.3,
+    "Op4Level": 0.35, "Op5Level": 0.22, "Op6Level": 0.12,
+    "FmIndexEnvDepth": 0.45, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 160.0,
+    "FmIndexEnvSustain": 0.12, "FmIndexEnvRelease": 110.0,
+    "FilterCutoff": 3200.0, "FilterResonance": 0.22, "FilterEnvDepth": 0.35,
+    "FilterEnvAttack": 2.0, "FilterEnvDecay": 220.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 200.0,
+    "AmpAttack": 2.0, "AmpDecay": 240.0, "AmpSustain": 0.6, "AmpRelease": 180.0
+  },
+  "tags": ["fm", "factory", "bass"],
+  "author": "Brume Factory",
+  "notes": "DOUBLE with mild feedback + a resonant filter sweep. Gritty growl bass; index env keeps the bite on the attack so sustain stays clean."
+}

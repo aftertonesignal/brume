@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Glass Sweep",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.35,
+    "HarmonicLevel2": 0.15,
+    "HarmonicLevel3": 0.22,
+    "HarmonicLevel4": 0.16,
+    "HarmonicLevel5": 0.2,
+    "HarmonicLevel6": 0.14,
+    "HarmonicLevel7": 0.12,
+    "HarmonicLevel8": 0.1,
+    "HarmonicTilt": 0.3,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.02,
+    "ScanCenter": 0.6,
+    "ScanWidth": 0.7,
+    "HarmonicMorph": 0.1,
+    "HarmonicFmDepth": 0.01,
+    "HarmonicFmRatio": 3.0,
+    "HarmonicSpread": 0.6,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.15,
+    "FilterEnvDepth": 0.6,
+    "FilterEnvAttack": 1500,
+    "FilterEnvDecay": 3000,
+    "FilterEnvSustain": 0.4,
+    "FilterEnvRelease": 2000,
+    "AmpAttack": 700,
+    "AmpDecay": 2000,
+    "AmpSustain": 0.7,
+    "AmpRelease": 1800
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "texture"
+  ],
+  "author": "Brume Factory",
+  "notes": "Evolving glass texture \u2014 bright upper partials revealed by a big slow resonant filter sweep. A riser/bed that moves over the hold."
+}

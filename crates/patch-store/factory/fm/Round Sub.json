@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "Round Sub",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 0.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.35,
+    "Op1Ratio": 1.0, "Op2Ratio": 1.0, "Op3Ratio": 0.5,
+    "Op4Ratio": 1.0, "Op5Ratio": 1.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.72, "Op2Level": 0.18, "Op3Level": 0.4,
+    "Op4Level": 0.0, "Op5Level": 0.0, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.25, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 110.0,
+    "FmIndexEnvSustain": 0.0, "FmIndexEnvRelease": 90.0,
+    "FilterCutoff": 5000.0, "FilterResonance": 0.05, "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 4.0, "FilterEnvDecay": 200.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 200.0,
+    "AmpAttack": 3.0, "AmpDecay": 220.0, "AmpSustain": 0.82, "AmpRelease": 220.0
+  },
+  "tags": ["fm", "factory", "bass"],
+  "author": "Brume Factory",
+  "notes": "STACK. Round sine-ish sub with a touch of 2nd-harmonic body and a short index bloom on the attack."
+}

@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "name": "FM Organ",
+  "mode": "fm",
+  "params": {
+    "Algorithm": 7.0,
+    "FmFeedback": 0.0,
+    "FmIndex": 0.1,
+    "Op1Ratio": 1.0, "Op2Ratio": 2.0, "Op3Ratio": 3.0,
+    "Op4Ratio": 4.0, "Op5Ratio": 6.0, "Op6Ratio": 1.0,
+    "Op1Level": 0.36, "Op2Level": 0.25, "Op3Level": 0.21,
+    "Op4Level": 0.12, "Op5Level": 0.1, "Op6Level": 0.0,
+    "FmIndexEnvDepth": 0.0, "FmIndexEnvAttack": 1.0, "FmIndexEnvDecay": 200.0,
+    "FmIndexEnvSustain": 0.0, "FmIndexEnvRelease": 100.0,
+    "FilterCutoff": 11000.0, "FilterResonance": 0.04, "FilterEnvDepth": 0.0,
+    "FilterEnvAttack": 5.0, "FilterEnvDecay": 200.0, "FilterEnvSustain": 0.0, "FilterEnvRelease": 200.0,
+    "AmpAttack": 4.0, "AmpDecay": 120.0, "AmpSustain": 0.85, "AmpRelease": 70.0
+  },
+  "tags": ["fm", "factory", "keys"],
+  "author": "Brume Factory",
+  "notes": "ADDITIVE. Drawbar organ — fixed octave/fifth partial stack, near-zero index (pure additive, no FM grit), instant on/off envelope. Hold-friendly."
+}

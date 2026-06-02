@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Saw Lead",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.842,
+    "HarmonicLevel2": 0.459,
+    "HarmonicLevel3": 0.306,
+    "HarmonicLevel4": 0.23,
+    "HarmonicLevel5": 0.153,
+    "HarmonicLevel6": 0.122,
+    "HarmonicLevel7": 0.077,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": 0.0,
+    "HarmonicOddEven": 0.45,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.72,
+    "HarmonicMorph": 0.6,
+    "HarmonicFmDepth": 0.03,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.2,
+    "FilterCutoff": 6500.0,
+    "FilterResonance": 0.1,
+    "FilterEnvDepth": 0.25,
+    "FilterEnvAttack": 5.0,
+    "FilterEnvDecay": 240.0,
+    "FilterEnvSustain": 0.5,
+    "FilterEnvRelease": 220.0,
+    "AmpAttack": 5.0,
+    "AmpDecay": 200.0,
+    "AmpSustain": 0.8,
+    "AmpRelease": 200.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "lead"
+  ],
+  "author": "Brume Factory",
+  "notes": "Morphed saw lead \u2014 morph pushes the partial shape toward a saw, filter env gives the cutting attack. Bright and playable for monophonic lines."
+}

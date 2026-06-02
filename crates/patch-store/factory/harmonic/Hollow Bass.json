@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "Hollow Bass",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.62,
+    "HarmonicLevel2": 0.0,
+    "HarmonicLevel3": 0.34,
+    "HarmonicLevel4": 0.0,
+    "HarmonicLevel5": 0.18,
+    "HarmonicLevel6": 0.0,
+    "HarmonicLevel7": 0.08,
+    "HarmonicLevel8": 0.0,
+    "HarmonicTilt": -0.3,
+    "HarmonicOddEven": 0.7,
+    "Inharmonicity": 0.0,
+    "ScanCenter": 0.3,
+    "ScanWidth": 0.4,
+    "HarmonicMorph": 0.3,
+    "HarmonicFmDepth": 0.02,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.2,
+    "FilterCutoff": 3000.0,
+    "FilterResonance": 0.12,
+    "FilterEnvDepth": 0.25,
+    "FilterEnvAttack": 3.0,
+    "FilterEnvDecay": 220.0,
+    "FilterEnvSustain": 0.4,
+    "FilterEnvRelease": 180.0,
+    "AmpAttack": 2.0,
+    "AmpDecay": 240.0,
+    "AmpSustain": 0.7,
+    "AmpRelease": 140.0
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "bass"
+  ],
+  "author": "Brume Factory",
+  "notes": "Odd-harmonic hollow bass \u2014 clarinet/square-ish spectrum (odd partials only), low scan window, bass tilt. Woody and round."
+}

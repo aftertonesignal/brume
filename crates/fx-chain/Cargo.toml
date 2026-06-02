@@ -1,0 +1,13 @@
+[package]
+name = "brume-fx-chain"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+brume-dsp-core = { path = "../dsp-core" }
+
+[lints]
+workspace = true

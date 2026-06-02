@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "name": "String Machine",
+  "mode": "harmonic",
+  "params": {
+    "HarmonicLevel1": 0.55,
+    "HarmonicLevel2": 0.36,
+    "HarmonicLevel3": 0.4,
+    "HarmonicLevel4": 0.26,
+    "HarmonicLevel5": 0.2,
+    "HarmonicLevel6": 0.13,
+    "HarmonicLevel7": 0.08,
+    "HarmonicLevel8": 0.05,
+    "HarmonicTilt": -0.22,
+    "HarmonicOddEven": 0.5,
+    "Inharmonicity": 0.008,
+    "ScanCenter": 0.5,
+    "ScanWidth": 0.78,
+    "HarmonicMorph": 0.55,
+    "HarmonicFmDepth": 0.02,
+    "HarmonicFmRatio": 1.0,
+    "HarmonicSpread": 0.74,
+    "FilterCutoff": 4800,
+    "FilterResonance": 0.05,
+    "FilterEnvDepth": 0.18,
+    "FilterEnvAttack": 450,
+    "FilterEnvDecay": 1600,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 1000,
+    "AmpAttack": 420,
+    "AmpDecay": 1400,
+    "AmpSustain": 0.76,
+    "AmpRelease": 900
+  },
+  "tags": [
+    "harmonic",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Warm Solina string ensemble \u2014 full saw-leaning spectrum, wide chorused spread, rolled-off filter for body. The warm pole opposite the icy crystal pad."
+}

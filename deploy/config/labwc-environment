@@ -1,0 +1,18 @@
+# wlroots falls back to Pixman (software) on Pi OS Lite Trixie if we
+# don't pin the GL/ES2 path explicitly; forcing gles2 drops compositor
+# CPU load on a fullscreen 1920×1200 webview from ~80% to ~50% and
+# routes composite through the VC4/V3D GPU.
+WLR_RENDERER=gles2
+
+# xkb defaults so wlroots doesn't probe a stale console-setup state.
+XKB_DEFAULT_MODEL=pc105
+XKB_DEFAULT_LAYOUT=us
+XKB_DEFAULT_VARIANT=
+XKB_DEFAULT_OPTIONS=
+
+# Transparent cursor theme — the 10.1" MAGEX touchscreen exposes a
+# mouse handler alongside the touch handler, and without a theme
+# override labwc paints a pointer under every touch. The theme is
+# installed at ~/.local/share/icons/brume-transparent by
+# deploy/scripts/install-transparent-cursor.sh.
+XCURSOR_THEME=brume-transparent

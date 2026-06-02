@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "name": "West Coast Pad",
+  "mode": "timbral",
+  "params": {
+    "Timbre": 0.5,
+    "Symmetry": 0.2,
+    "TimbralFmDepth": 0.3,
+    "TimbralFmRatio": 1.5,
+    "SubLevel": 0.0,
+    "TimbralFeedback": 0.05,
+    "MultiplierStages": 2.0,
+    "FilterCutoff": 6000,
+    "FilterResonance": 0.06,
+    "FilterEnvDepth": 0.3,
+    "FilterEnvAttack": 900,
+    "FilterEnvDecay": 2000,
+    "FilterEnvSustain": 0.6,
+    "FilterEnvRelease": 1600,
+    "AmpAttack": 800,
+    "AmpDecay": 1900,
+    "AmpSustain": 0.72,
+    "AmpRelease": 1700
+  },
+  "tags": [
+    "timbral",
+    "factory",
+    "pad"
+  ],
+  "author": "Brume Factory",
+  "notes": "Evolving Buchla-style pad \u2014 fold depth and FM drift the timbre over the long hold."
+}
