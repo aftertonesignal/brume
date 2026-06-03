@@ -17,5 +17,7 @@ interchangeable. These are plain product links, no affiliate.
 
 ## MIDI controllers
 
-- [Korg nanoKONTROL2](https://www.amazon.com/dp/B004M8UZS8) — auto-detected control surface
-- [Novation Launch Control XL 3](https://www.amazon.com/dp/B0F43TDF84) — deeper integration (the LCXL3 driver target)
+Both are first-class control surfaces — auto-detected on connect, no setup.
+
+- [Korg nanoKONTROL2](https://www.amazon.com/dp/B004M8UZS8)
+- [Novation Launch Control XL 3](https://www.amazon.com/dp/B0F43TDF84)
