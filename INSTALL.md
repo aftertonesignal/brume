@@ -16,11 +16,12 @@ only one with appliance-mode bring-up guaranteed) is a
 Brume installs on top of an existing, working Pi OS Lite. Specifically:
 
 - A CM5 booted on Pi OS Lite (64-bit, Trixie).
-- The user account is named `brume`, with passwordless sudo and your
-  SSH public key in `~/.ssh/authorized_keys` (Pi OS's default user
-  setup gets you both).
-- The device is on your network and reachable as `brume.local` (mDNS)
-  or by IP.
+- A user account with passwordless sudo and your SSH public key in
+  `~/.ssh/authorized_keys` (Pi OS's default user setup gets you both).
+  `brumectl` defaults to `brume@brume.local`; if your account or
+  hostname differs, pass `--host <user>@<host>` (or set `$BRUME_HOST`).
+- The device is on your network and reachable as `<hostname>.local`
+  (mDNS) or by IP.
 
 How you get the CM5 to that state is out of scope for this guide.
 The Raspberry Pi Foundation's
@@ -43,11 +44,17 @@ controller machine, you're ready for the steps below.
 
 - An SSH key with its public half on the CM5 (we recommend a
   project-specific one, e.g. `~/.ssh/id_brume_cm5`).
-- `brumectl`, the companion CLI. Build from source with
-  `cargo build --release -p brumectl`, or download a tagged release
-  from [GitHub Releases](https://github.com/aftertonesignal/brume/releases)
-  (macOS arm64 and Linux x86_64 binaries are published with every
-  tag; the resulting binary goes anywhere on your `$PATH`).
+- `brumectl`, the companion CLI for your computer (macOS arm64 or
+  Linux x86_64). Install the latest release with one command:
+
+  ```sh
+  curl -fsSL https://brume.aftertone.co/install | sh
+  ```
+
+  It lands `brumectl` in `~/.local/bin`. You can also download a
+  tagged release from
+  [GitHub Releases](https://github.com/aftertonesignal/brume/releases),
+  or build from source with `cargo build --release -p brumectl`.
 
 ---
 
@@ -85,14 +92,14 @@ What it does, in eight phases:
    `/usr/share/brume/factory` (from the release, or your in-tree presets).
 5. **Configs:** writes the appliance-mode setup: `~/.bash_profile`,
    `~/.config/labwc/autostart`, `~/.config/labwc/environment`,
-   `~/.config/systemd/user/brume.service`, `/etc/asound.conf`,
-   `/etc/systemd/system/getty@tty1.service.d/autologin.conf`, and the
+   `~/.config/systemd/user/brume.service`, `/etc/asound.conf`, and the
    transparent-cursor Xcursor theme.
 6. **Meridian:** on a CM5, sets up the USB audio/MIDI gadget — the
    gadget script, its service, and the `dwc2,dr_mode=peripheral` overlay
    in `config.txt`. Skipped on non-CM5 hardware.
 7. **Autologin:** `raspi-config nonint do_boot_behaviour B2` so tty1
-   auto-logs-in as `brume`, who `.bash_profile` hands off to labwc.
+   auto-logs-in as the install user, whose `.bash_profile` hands off
+   to labwc.
 8. **Verify:** confirms `brume.service` is enabled and
    `/usr/bin/brume` is present.
 
@@ -120,9 +127,10 @@ Once installed, pushing a new Brume release is one command:
 brumectl -i ~/.ssh/id_brume_cm5 install --update
 ```
 
-`--update` skips apt + configs + autologin and just scps the new
-`/usr/bin/brume` and restarts `brume.service`. End-to-end ~5 seconds.
-No reboot needed.
+`--update` refreshes Brume's content: it re-stages the `brume` binary
+and the factory presets, then restarts `brume.service`. It skips the
+one-time appliance plumbing (apt, configs, Meridian, autologin), so no
+reboot is needed and the round-trip is a few seconds.
 
 Full re-install (overwrite configs as well) is just
 `brumectl install` without `--update`.

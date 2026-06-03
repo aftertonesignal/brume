@@ -32,8 +32,10 @@ pub struct Opts {
     /// logs its intent and skips the remote side.
     pub dry_run: bool,
 
-    /// Binary-only refresh path: skip apt + configs + autologin, push
-    /// the new binary and restart brume.service.
+    /// Content-refresh path: re-stage the brume binary and the factory
+    /// presets, then restart brume.service. Skips the one-time appliance
+    /// plumbing (apt, configs, Meridian, autologin) — those only change on
+    /// a full install.
     pub update: bool,
 
     /// Explicit path to the aarch64 brume binary. Overrides env +
