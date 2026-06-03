@@ -70,23 +70,30 @@ If that resolves, move on. If not: see [Troubleshooting](#troubleshooting).
 brumectl -i ~/.ssh/id_brume_cm5 install
 ```
 
-What it does, in six phases:
+What it does, in eight phases:
 
 1. **Probe:** verifies SSH works, user has passwordless sudo, arch is
    aarch64, OS is Debian-like.
 2. **apt:** installs runtime deps: `labwc`, `seatd`, `swaybg`,
    `grim`, `xwayland`, `dbus-user-session`, `alsa-utils`, and the
    corresponding EGL/GLES/font packages.
-3. **Binary:** copies the cross-built `brume` aarch64 ELF to
-   `/usr/bin/brume` (root:root, 0755).
-4. **Configs:** writes the appliance-mode setup: `~/.bash_profile`,
+3. **Binary:** installs the `brume` aarch64 binary to `/usr/bin/brume`
+   (root:root, 0755) — auto-fetched from the matching GitHub Release
+   (SHA-256 verified against its sidecar), or a local cross-build if
+   you have one.
+4. **Factory:** installs the factory preset library to
+   `/usr/share/brume/factory` (from the release, or your in-tree presets).
+5. **Configs:** writes the appliance-mode setup: `~/.bash_profile`,
    `~/.config/labwc/autostart`, `~/.config/labwc/environment`,
    `~/.config/systemd/user/brume.service`, `/etc/asound.conf`,
    `/etc/systemd/system/getty@tty1.service.d/autologin.conf`, and the
    transparent-cursor Xcursor theme.
-5. **Autologin:** `raspi-config nonint do_boot_behaviour B2` so tty1
+6. **Meridian:** on a CM5, sets up the USB audio/MIDI gadget — the
+   gadget script, its service, and the `dwc2,dr_mode=peripheral` overlay
+   in `config.txt`. Skipped on non-CM5 hardware.
+7. **Autologin:** `raspi-config nonint do_boot_behaviour B2` so tty1
    auto-logs-in as `brume`, who `.bash_profile` hands off to labwc.
-6. **Verify:** confirms `brume.service` is enabled and
+8. **Verify:** confirms `brume.service` is enabled and
    `/usr/bin/brume` is present.
 
 Reboot when it prompts you:
@@ -151,10 +158,11 @@ Your SSH key isn't being offered to the CM5. Try:
 ### Brume starts but no sound
 
 Check ALSA card enumeration: `aplay -l` on the CM5 should list
-`vc4-hdmi-0` as card 0. `/etc/asound.conf` routes ALSA default to
-that card. If you've plugged in a USB audio device, `/etc/modprobe.d/alsa-base.conf`
-(set by the install) keeps it off card 0 so it doesn't steal
-Brume's output.
+`vc4-hdmi-0` as card 0. `/etc/asound.conf` (written by the install)
+routes the ALSA default to that card. If you've plugged in a USB audio
+device that grabbed card 0, set the card order so HDMI stays at 0 — or
+unplug it while testing. (Audio to a DAW goes over USB via Meridian,
+not this local path.)
 
 ### brumectl can't find the brume binary
 
