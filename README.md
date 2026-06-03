@@ -51,6 +51,7 @@ surface is in [`CHANGELOG.md`](CHANGELOG.md).
 - [`INSTALL.md`](INSTALL.md): first-time CM5 bring-up.
 - [`DEPLOY.md`](DEPLOY.md): iteration loop on a CM5.
 - [`HARDWARE.md`](HARDWARE.md): IO board, screen, and audio notes.
+- [`BOM.md`](BOM.md): the exact parts we developed on, with links.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md): house style, PR flow, and scope.
 - [`AGENTS.md`](AGENTS.md): entry point for AI coding agents.
 - [`CHANGELOG.md`](CHANGELOG.md): every user-observable change.

@@ -3,7 +3,8 @@
 Brume's reference platform and the hardware-level requirements for its
 USB audio + MIDI bridge (Meridian). The software targets the stock
 Raspberry Pi kernel and ALSA, so it isn't tied to one IO board or
-panel; reports from other hardware are welcome.
+panel; reports from other hardware are welcome. The exact parts we
+used, with purchase links, are in [BOM.md](BOM.md).
 
 ## Reference platform
 
