@@ -9,11 +9,11 @@
 
 use std::fmt;
 
-// Matches the first-user account cloud-init provisions on a fresh
-// Pi OS Lite + brumectl-seeded install (see
-// apps/brumectl/src/cmds/flash/ops.rs::render_user_data). Root SSH is
-// not enabled out of the box. Override with --host or $BRUME_HOST
-// if you've already flashed a device with a different username.
+// The conventional default for a Brume CM5: the username you set when
+// flashing Pi OS Lite with Raspberry Pi Imager, reachable over mDNS as
+// `<hostname>.local`. This is only a fallback — `brumectl` works with
+// any account; override with --host or $BRUME_HOST if your device uses
+// a different user or hostname.
 const DEFAULT_HOST: &str = "brume@brume.local";
 
 #[derive(Debug, Clone)]

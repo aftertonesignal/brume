@@ -202,6 +202,6 @@ builds and runs natively on macOS and Linux desktops, and
 
 - First-time CM5 bring-up (flashing, network, USB gadget). See
   `INSTALL.md`.
-- Building a release image / SD card flash. See
+- Cutting a release (cross-built `brume` + `brumectl` binaries). See
   `BUILD_AND_RELEASE.md` and `release.yml`.
 - Hardware setup (IO board, screen, audio HAT). See `HARDWARE.md`.
