@@ -35,11 +35,11 @@ mode through a USB OTG jumper. Whether the device-mode port on the
 carrier is Type-C or Type-A is incidental; what matters is that one
 of the carrier's USB ports is wired to the CM5's peripheral
 controller. The same combination pairs the
-CM5 with a 10.1-inch DSI touchscreen and an audio HAT; the reference
-unit's specific parts are documented in [`HARDWARE.md`](HARDWARE.md).
-The software is written against the stock Pi kernel and ALSA; notes
-from anyone who has gotten Brume running on different IO boards or
-audio HATs are welcome in the same file.
+CM5 with a 10.1-inch HDMI touchscreen; the reference unit's specific
+parts are documented in [`HARDWARE.md`](HARDWARE.md). The software is
+written against the stock Pi kernel and ALSA; notes from anyone who has
+gotten Brume running on different IO boards or displays are welcome in
+the same file.
 
 ## Status
 
@@ -50,7 +50,7 @@ surface is in [`CHANGELOG.md`](CHANGELOG.md).
 
 - [`INSTALL.md`](INSTALL.md): first-time CM5 bring-up.
 - [`DEPLOY.md`](DEPLOY.md): iteration loop on a CM5.
-- [`HARDWARE.md`](HARDWARE.md): IO board, screen, and audio HAT notes.
+- [`HARDWARE.md`](HARDWARE.md): IO board, screen, and audio notes.
 - [`CONTRIBUTING.md`](CONTRIBUTING.md): house style, PR flow, and scope.
 - [`AGENTS.md`](AGENTS.md): entry point for AI coding agents.
 - [`CHANGELOG.md`](CHANGELOG.md): every user-observable change.
