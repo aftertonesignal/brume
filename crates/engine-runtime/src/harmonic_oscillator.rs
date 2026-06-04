@@ -230,7 +230,10 @@ impl HarmonicOscillator {
 
             // Advance phase
             let phase_inc = freq / self.sample_rate;
-            self.phases[i] = (self.phases[i] + phase_inc).rem_euclid(1.0);
+            self.phases[i] += phase_inc;
+            if self.phases[i] >= 1.0 {
+                self.phases[i] -= 1.0;
+            }
         }
 
         // Normalize to prevent clipping
