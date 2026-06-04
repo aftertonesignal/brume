@@ -253,6 +253,83 @@ pub const ALGORITHMS: [Algorithm; 12] = [
     },
 ];
 
+#[derive(Debug, Clone, Copy)]
+struct ModRoute {
+    inputs: [usize; NUM_OPS],
+    input_count: usize,
+    self_feedback: bool,
+}
+
+const EMPTY_MOD_ROUTE: ModRoute = ModRoute {
+    inputs: [0; NUM_OPS],
+    input_count: 0,
+    self_feedback: false,
+};
+
+#[derive(Debug, Clone, Copy)]
+struct AlgorithmSchedule {
+    mod_routes: [ModRoute; NUM_OPS],
+    carriers: [usize; NUM_OPS],
+    carrier_count: usize,
+}
+
+const EMPTY_ALGORITHM_SCHEDULE: AlgorithmSchedule = AlgorithmSchedule {
+    mod_routes: [EMPTY_MOD_ROUTE; NUM_OPS],
+    carriers: [0; NUM_OPS],
+    carrier_count: 0,
+};
+
+const fn build_algorithm_schedule(algorithm: Algorithm) -> AlgorithmSchedule {
+    let mut schedule = EMPTY_ALGORITHM_SCHEDULE;
+    let mut i = 0;
+
+    while i < NUM_OPS {
+        let mask = algorithm.mod_into[i];
+        let mut j = 0;
+
+        while j < NUM_OPS {
+            if mask & (1u8 << j) != 0 {
+                if j == i {
+                    schedule.mod_routes[i].self_feedback = true;
+                } else {
+                    let count = schedule.mod_routes[i].input_count;
+                    schedule.mod_routes[i].inputs[count] = j;
+                    schedule.mod_routes[i].input_count = count + 1;
+                }
+            }
+            j += 1;
+        }
+
+        i += 1;
+    }
+
+    let mut i = 0;
+    while i < NUM_OPS {
+        if algorithm.carriers & (1u8 << i) != 0 {
+            let count = schedule.carrier_count;
+            schedule.carriers[count] = i;
+            schedule.carrier_count = count + 1;
+        }
+        i += 1;
+    }
+
+    schedule
+}
+
+const fn build_algorithm_schedules() -> [AlgorithmSchedule; ALGORITHMS.len()] {
+    let mut schedules = [EMPTY_ALGORITHM_SCHEDULE; ALGORITHMS.len()];
+    let mut i = 0;
+
+    while i < ALGORITHMS.len() {
+        schedules[i] = build_algorithm_schedule(ALGORITHMS[i]);
+        i += 1;
+    }
+
+    schedules
+}
+
+const ALGORITHM_SCHEDULES: [AlgorithmSchedule; ALGORITHMS.len()] = build_algorithm_schedules();
+
 // Sine LUT moved to brume_dsp_core::sine_lut to share with the
 // Harmonic oscillator. Both engines now hit one cache-warm copy of
 // the 4096-entry table instead of duplicating it per crate.
@@ -356,7 +433,7 @@ impl FmOscillator {
     /// Generates one output sample.
     #[inline]
     pub fn process(&mut self) -> f32 {
-        let alg = &ALGORITHMS[self.algorithm_idx as usize];
+        let schedule = &ALGORITHM_SCHEDULES[self.algorithm_idx as usize];
         let fb = self.feedback.process();
         let fm_idx = self.fm_index;
 
@@ -375,22 +452,18 @@ impl FmOscillator {
         let mut op_out = [0.0_f32; NUM_OPS];
 
         for i in (0..NUM_OPS).rev() {
-            let mod_mask = alg.mod_into[i];
+            let route = &schedule.mod_routes[i];
             let mut pm = 0.0_f32;
 
-            if mod_mask != 0 {
-                for j in 0..NUM_OPS {
-                    if mod_mask & (1u8 << j) != 0 {
-                        if j == i {
-                            // Self-feedback — use last sample's output
-                            // of this op, scaled by global feedback.
-                            pm += self.ops[i].prev_output * fb;
-                        } else {
-                            // Normal: j > i guaranteed by convention.
-                            pm += op_out[j] * self.ops[j].level.value();
-                        }
-                    }
-                }
+            if route.self_feedback {
+                // Self-feedback — use last sample's output of this op,
+                // scaled by global feedback.
+                pm += self.ops[i].prev_output * fb;
+            }
+            for input_idx in 0..route.input_count {
+                let j = route.inputs[input_idx];
+                // Normal: j > i guaranteed by convention.
+                pm += op_out[j] * self.ops[j].level.value();
             }
 
             // Scale modulation input by the global FM index. All
@@ -412,10 +485,9 @@ impl FmOscillator {
         // per-op levels to balance. Multi-carrier algorithms will be
         // louder by design; that's honest output, not a bug.
         let mut out = 0.0_f32;
-        for i in 0..NUM_OPS {
-            if alg.carriers & (1u8 << i) != 0 {
-                out += op_out[i] * self.ops[i].level.value();
-            }
+        for carrier_idx in 0..schedule.carrier_count {
+            let i = schedule.carriers[carrier_idx];
+            out += op_out[i] * self.ops[i].level.value();
         }
         out
     }
@@ -632,5 +704,40 @@ mod tests {
             (875..=885).contains(&c),
             "OP2 at ratio 2 = ~880 Hz, got {c} crossings"
         );
+    }
+
+    #[test]
+    fn routing_schedules_match_algorithm_masks() {
+        for (alg_idx, algorithm) in ALGORITHMS.iter().enumerate() {
+            let schedule = &ALGORITHM_SCHEDULES[alg_idx];
+
+            for i in 0..NUM_OPS {
+                let route = &schedule.mod_routes[i];
+                let mut mask = if route.self_feedback { 1u8 << i } else { 0 };
+
+                for input_idx in 0..route.input_count {
+                    let j = route.inputs[input_idx];
+                    assert_ne!(j, i, "self feedback should use the bool path");
+                    mask |= 1u8 << j;
+                }
+
+                assert_eq!(
+                    mask, algorithm.mod_into[i],
+                    "algorithm {} ({}) op {} schedule drifted",
+                    alg_idx, algorithm.name, i
+                );
+            }
+
+            let mut carrier_mask = 0_u8;
+            for carrier_idx in 0..schedule.carrier_count {
+                carrier_mask |= 1u8 << schedule.carriers[carrier_idx];
+            }
+
+            assert_eq!(
+                carrier_mask, algorithm.carriers,
+                "algorithm {} ({}) carrier schedule drifted",
+                alg_idx, algorithm.name
+            );
+        }
     }
 }
