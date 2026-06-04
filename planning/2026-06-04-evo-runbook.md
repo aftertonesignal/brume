@@ -34,7 +34,7 @@ EVO needs a benchmark command and metric direction. For this branch:
 
 Metric direction: minimize.
 
-The score command prints a single numeric value to stdout:
+The score command prints a single JSON object to stdout:
 
 - `mean_ns_per_frame` from the benchmark summary.
 - Lower is better.
@@ -137,8 +137,8 @@ Validated on 2026-06-04:
 
 Result:
 
-```text
-2285.854
+```json
+{"score":2285.854,"metric":"mean_ns_per_frame","direction":"min","blocks":1000,"warmup_blocks":128,"block_size":512}
 ```
 
 ```bash

@@ -3,7 +3,7 @@
 # Copyright (C) 2026 Brandon Huey <hello@aftertone.co>
 #
 # Numeric score command for EVO engine-runtime experiments.
-# Prints one number to stdout: lower mean ns/frame is better.
+# Prints one JSON object to stdout. Lower score is better.
 
 set -euo pipefail
 
@@ -34,4 +34,8 @@ if [[ -z "$score" ]]; then
   exit 1
 fi
 
-printf '%s\n' "$score"
+printf '{"score":%s,"metric":"mean_ns_per_frame","direction":"min","blocks":%s,"warmup_blocks":%s,"block_size":%s}\n' \
+  "$score" \
+  "$blocks" \
+  "$warmup_blocks" \
+  "$block_size"
