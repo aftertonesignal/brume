@@ -194,7 +194,17 @@ An EVO candidate is not accepted solely because the score improves. Require:
 
 - Gate command passes.
 - Full 512-frame score run is repeated at least twice.
-- One 16- or 32-frame run is repeated to catch small-block regressions.
+- One 16- or 32-frame run is repeated to catch small-block regressions. Keep
+  the total rendered frame count comparable when changing block size because
+  the benchmark activity floors are absolute. For example:
+
+```bash
+BRUME_EVO_SCORE_BLOCK_SIZE=32 \
+BRUME_EVO_SCORE_BLOCKS=16000 \
+BRUME_EVO_SCORE_WARMUP_BLOCKS=2048 \
+./scripts/evo/score-engine-runtime.sh
+```
+
 - Output metrics remain plausible: peak, RMS, zero crossings, and checksum or
   energy drift do not indicate silence, skipped work, or collapsed spectra.
 - The diff is explainable in audio-thread terms.

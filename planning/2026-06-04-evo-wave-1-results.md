@@ -34,6 +34,27 @@ The best committed EVO score improved from `2301.508` to `2281.670`
 mean ns/frame, about `0.86%` on this benchmark. Several ad hoc score runs showed
 larger wins, but repeated formal EVO attempts were the deciding evidence.
 
+After integrating the accepted path onto `evo-performance`, the branch-local
+validation snapshot was:
+
+```text
+./scripts/evo/gate-engine-runtime-fast.sh
+  passed, including render_bench behavior gate for 14 scenarios
+
+./scripts/evo/score-engine-runtime.sh
+  2223.786 mean ns/frame
+
+BRUME_EVO_SCORE_BLOCK_SIZE=32 \
+BRUME_EVO_SCORE_BLOCKS=16000 \
+BRUME_EVO_SCORE_WARMUP_BLOCKS=2048 \
+./scripts/evo/score-engine-runtime.sh
+  2245.639 mean ns/frame
+```
+
+The 32-frame run scales block count and warmup count to preserve the total frame
+count. Running 32-frame blocks with the default 1000-block score is too short
+for the benchmark's absolute zero-crossing floors.
+
 ## Accepted Changes
 
 ### Shared sine LUT for phase helpers
