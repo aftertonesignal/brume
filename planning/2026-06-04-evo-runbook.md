@@ -155,6 +155,39 @@ evo doctor codex
 
 Result: passed.
 
+```bash
+evo init --name brume-engine-runtime-performance \
+  --target "Optimize Brume engine-runtime voice engine performance on the evo-performance branch. Focus on crates/engine-runtime and brume-dsp-core helpers used by the voice hot path. Preserve audio-thread safety and avoid UI, persistence, MIDI, deploy, and packaging changes." \
+  --benchmark "./scripts/evo/score-engine-runtime.sh" \
+  --metric min \
+  --gate "./scripts/evo/gate-engine-runtime-fast.sh" \
+  --host codex \
+  --commit-strategy tracked-only
+```
+
+Result: initialized `run_0000` with dashboard at `http://127.0.0.1:8081`.
+
+Two early check nodes were discarded while correcting the score wrapper's EVO
+artifact contract:
+
+- `exp_0000`: wrapper printed a bare number.
+- `exp_0001`: wrapper printed JSON but did not write `EVO_RESULT_PATH`.
+
+Validated baseline node:
+
+```bash
+evo new --parent root -m "baseline wiring check after EVO result-file fix"
+evo run --check exp_0002 --timeout 180
+evo run exp_0002 --timeout 180
+```
+
+Results:
+
+- `evo run --check exp_0002`: passed with score `2285.75`; `_init_gate`
+  passed.
+- `evo run exp_0002`: committed baseline score `2301.508`; no diff files.
+- `evo status`: `committed=1`, `discarded=2`, `best=2301.508`.
+
 ## Acceptance Rules
 
 An EVO candidate is not accepted solely because the score improves. Require:
