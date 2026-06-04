@@ -1,0 +1,21 @@
+# Gate-sized render_bench behavior baseline for evo-performance.
+# Captured on 2026-06-04 with:
+# BRUME_RENDER_BENCH_BLOCKS=256
+# BRUME_RENDER_BENCH_WARMUP_BLOCKS=64
+# BRUME_RENDER_BENCH_BLOCK_SIZE=512
+#
+# kind	name	frames	peak	rms	zero_crossings
+voice	voice_fm_dense	131072	0.905357	0.277862	40943
+voice	voice_harmonic_scan	131072	0.484389	0.073685	31952
+voice	voice_timbral_shaped	131072	0.649194	0.254435	3198
+voice	voice_granular_cloud	131072	1.001614	0.218535	17580
+part	part_fm_dense	131072	0.351537	0.082774	40360
+part	part_harmonic_scan	131072	0.115992	0.021068	32698
+part	part_timbral_shaped	131072	0.246963	0.068948	5158
+part	part_granular_cloud	131072	0.246836	0.052068	18511
+engine	fm_dense_stereo	131072	0.281230	0.066219	40360
+engine	harmonic_scan_stereo	131072	0.092794	0.016854	32698
+engine	timbral_shaped_stereo	131072	0.197570	0.055158	5158
+engine	granular_cloud_stereo	131072	0.197469	0.041654	18511
+engine	full_engine_stereo	131072	0.396509	0.087591	29009
+engine	full_engine_8ch	131072	0.351537	0.060746	40360
