@@ -38,6 +38,8 @@ The score command prints a single JSON object to stdout:
 
 - `mean_ns_per_frame` from the benchmark summary.
 - Lower is better.
+- When EVO sets `EVO_RESULT_PATH`, the same JSON payload is also written there;
+  EVO `0.4.5` check/run paths require this file.
 - Default score run settings:
   - `BRUME_EVO_SCORE_BLOCKS=1000`
   - `BRUME_EVO_SCORE_WARMUP_BLOCKS=128`

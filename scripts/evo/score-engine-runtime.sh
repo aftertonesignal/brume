@@ -34,8 +34,17 @@ if [[ -z "$score" ]]; then
   exit 1
 fi
 
-printf '{"score":%s,"metric":"mean_ns_per_frame","direction":"min","blocks":%s,"warmup_blocks":%s,"block_size":%s}\n' \
+payload="$(
+  printf '{"score":%s,"metric":"mean_ns_per_frame","direction":"min","blocks":%s,"warmup_blocks":%s,"block_size":%s}' \
   "$score" \
   "$blocks" \
   "$warmup_blocks" \
   "$block_size"
+)"
+
+if [[ -n "${EVO_RESULT_PATH:-}" ]]; then
+  mkdir -p "$(dirname "$EVO_RESULT_PATH")"
+  printf '%s\n' "$payload" >"$EVO_RESULT_PATH"
+fi
+
+printf '%s\n' "$payload"
