@@ -7,7 +7,11 @@
 //! so FM synthesis can read one oscillator's output before computing
 //! the other's.
 
-use std::f32::consts::TAU;
+use std::f32::consts::FRAC_1_PI;
+
+use crate::sine_lut::sine_normalized;
+
+const RADIANS_TO_TURNS: f32 = FRAC_1_PI * 0.5;
 
 /// Audio-rate oscillator with sine and triangle output and phase modulation.
 pub struct PhaseOscillator {
@@ -74,14 +78,14 @@ impl PhaseOscillator {
     #[inline]
     #[must_use]
     pub fn sine(&self) -> f32 {
-        (self.phase * TAU).sin()
+        sine_normalized(self.phase)
     }
 
     /// Sine output with phase modulation (offset in radians).
     #[inline]
     #[must_use]
     pub fn sine_pm(&self, pm_radians: f32) -> f32 {
-        (self.phase * TAU + pm_radians).sin()
+        sine_normalized(self.phase + pm_radians * RADIANS_TO_TURNS)
     }
 
     /// Triangle output at the current phase. Range: [-1.0, 1.0].
@@ -96,7 +100,7 @@ impl PhaseOscillator {
     #[must_use]
     pub fn triangle_pm(&self, pm_radians: f32) -> f32 {
         // Normalize the PM offset from radians to [0, 1) phase
-        let p = (self.phase + pm_radians / TAU).rem_euclid(1.0);
+        let p = phase_with_pm(self.phase, pm_radians);
         triangle_wave(p)
     }
 
@@ -111,7 +115,7 @@ impl PhaseOscillator {
     #[inline]
     #[must_use]
     pub fn saw_pm(&self, pm_radians: f32) -> f32 {
-        let p = (self.phase + pm_radians / TAU).rem_euclid(1.0);
+        let p = phase_with_pm(self.phase, pm_radians);
         2.0 * p - 1.0
     }
 
@@ -120,7 +124,7 @@ impl PhaseOscillator {
     #[inline]
     #[must_use]
     pub fn square_pm(&self, pm_radians: f32, pw: f32) -> f32 {
-        let p = (self.phase + pm_radians / TAU).rem_euclid(1.0);
+        let p = phase_with_pm(self.phase, pm_radians);
         if p < pw { 1.0 } else { -1.0 }
     }
 
@@ -162,21 +166,26 @@ fn triangle_wave(phase: f32) -> f32 {
     }
 }
 
+#[inline]
+fn phase_with_pm(phase: f32, pm_radians: f32) -> f32 {
+    (phase + pm_radians * RADIANS_TO_TURNS).rem_euclid(1.0)
+}
+
 /// Continuous morph between sine, triangle, saw, and square.
 ///
 /// `phase` is 0.0-1.0 (oscillator phase). `pm` is phase modulation in radians.
 /// `morph` is 0.0-1.0: 0=sine, 0.33=triangle, 0.66=saw, 1.0=square.
 #[inline]
 pub fn morph_wave(phase: f32, pm: f32, morph: f32) -> f32 {
-    let p = (phase + pm / TAU).rem_euclid(1.0);
+    let p = phase_with_pm(phase, pm);
 
     if morph <= 0.0 {
         // Pure sine
-        (p * TAU).sin()
+        sine_normalized(p)
     } else if morph <= 0.333 {
         // Sine → Triangle
         let t = morph / 0.333;
-        let sine = (p * TAU).sin();
+        let sine = sine_normalized(p);
         let tri = triangle_wave(p);
         sine * (1.0 - t) + tri * t
     } else if morph <= 0.666 {
@@ -197,6 +206,7 @@ pub fn morph_wave(phase: f32, pm: f32, morph: f32) -> f32 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::f32::consts::TAU;
 
     #[test]
     fn sine_output_range() {
