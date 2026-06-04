@@ -15,6 +15,8 @@ web/
 # that points Claude Code at .agents/skills.
 /.claude/
 /.codex/
+/.evo/
+/worktrees/
 
 # Local dev cruft + internal review docs. Kept on disk but never part
 # of the tree that gets copied into the public repo (a fresh
