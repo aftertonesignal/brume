@@ -336,7 +336,7 @@ impl ScriptEngine {
     /// hook with a discriminator argument because that's harder to type
     /// correctly from a hot-reload reload mid-arrangement.
     pub fn process_midi_queue(&mut self) {
-        let events: Vec<ScriptMidiEvent> = self.midi_queue.drain(..).collect();
+        let events: Vec<ScriptMidiEvent> = std::mem::take(&mut self.midi_queue);
         for event in events {
             match event {
                 ScriptMidiEvent::NoteOn {
@@ -617,7 +617,7 @@ impl ScriptEngine {
     /// Drains any pending error messages from script callbacks.
     #[must_use]
     pub fn drain_errors(&mut self) -> Vec<String> {
-        self.errors.drain(..).collect()
+        std::mem::take(&mut self.errors)
     }
 
     /// Runs a callback hook, capturing errors instead of propagating.
